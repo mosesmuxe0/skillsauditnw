@@ -1,0 +1,611 @@
+{% extends "base.html" %}
+{% block title %}Development{% endblock %}
+    
+<style>
+    a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 16px;
+    }
+    
+    a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .previous {
+      background-color: #f1f1f1;
+      color: black;
+    }
+    
+    .next {
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+    .round {
+      border-radius: 50%;
+    }
+</style>
+{% block content %}
+    
+<div class="container">
+    <div class="row mt-4">
+     <div class="col-lg-5 col-md-6 m-auto card p-4">
+        <form action="{{ url_for('views.constraints') }}" method="POST" class="card-body">  
+            <form action="/action_page.php"></form>        
+                          <!-- <h4 align="right">Welcome {{ current_user.username }}</h4> -->
+            <div class="container py-4">
+                <h1 align="center">Training and Development</h1>
+                <br>
+                <h6 align="center">This section requires information pertaining to training / development interventions that you have undertaken excluding the formal qualifications that you provided in Qualifications Details section</h6>
+                <br>
+
+                <div class="mb-3">
+                    <label for="course1name" class="form-label form-select-lg mb-3 text-right"><b>Course Name</b></label>
+                    <!-- <label for="same" class="form-label">Name</label> -->
+                    <input type="name" class="form-control form-select-lg mb-3" id="course1name" name="course1name" placeholder="Project Management" aria-label=".form-select-lg example">
+                  </div>
+
+                <label for="nqflevel1" class="form-label form-select-lg mb-3 text-right">NQF Level</label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="nqflevel1" id="nqflevel1">
+                  <option selected></option>
+                  <option value="1">NQF 1 - Grade 9</option>
+                  <option value="2">NQF 2 - Grade 10 and National (vocational) Certificates level 2</option>
+                  <option value="3">NQF 3 - Grade 11 and National (vocational) Certificates level 3</option>
+                  <option value="4">NQF 4 - Grade 12 (National Senior Certificate) and National (vocational) Cert. level 4</option>
+                  <option value="5">NQF 5 - Higher Certificates and Advanced National (vocational) Cert.</option>
+                  <option value="6">NQF 6 - National Diploma and Advanced certificates</option>
+                  <option value="7">NQF 7 - Bachelor's degree, Advanced Diplomas, Post Graduate Certificate and B-tech</option>
+                  <option value="8">NQF 8 - Honours degree, Post Graduate diploma and Professional Qualifications</option>
+                  <option value="9">NQF 9 - Master's degree</option>
+                  <option value="10">NQF 10 - Doctor's degree</option>
+                </select>
+
+                <label for="intervention" class="form-label form-select-lg mb-3 text-right">Type of Intervention</label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="intervention" id="intervention">
+                    <option selected></option>
+                    <option value="1">One-On-One Development</option>
+                    <option value="2">Internship / Experiential Learning</option>
+                    <option value="3">On-The-Job Training</option>
+                    <option value="4">Workshop</option>
+                    <option value="5">Workplace Experience</option>
+                    <option value="6">Learnership</option>
+                    <option value="7">Apprenticeship</option>
+                    <option value="8">Skills Programme</option>
+                    <option value="9">Graduate Development</option>
+                    <option value="10">Recognition of Prior Learning (RPL)</option>
+                  </select>
+
+                  <label for="competencylevel" class="form-label form-select-lg mb-3 text-right">Competence Level</label>
+                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="competencylevel" id="competencylevel">
+                    <option selected></option>
+                    <option value="1">Novice</option>
+                    <option value="2">Intermediate</option>
+                    <option value="3">Advanced</option>
+                  </select>
+                <br>
+                
+                <!-- <label for="achtype1" class="form-label form-select-lg mb-3 text-right">Achievement Type</label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="achtype1" id="achtype1">
+                    <option selected></option>
+                    <option value="1">Recognition of Prior Learning (RPL)</option>
+                    <option value="2">Distance Learning</option>
+                    <option value="3">Work Place Learning</option>
+                    <option value="4">Blended Learning</option>
+                    <option value="5">Other</option>
+                </select> -->
+
+                <label for="qualstatus1" class="form-label form-select-lg mb-3 text-right">Qualification Status</label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="qualstatus1" id="qualstatus1">
+                    <option selected></option>
+                    <option value="1">Achieved</option>
+                    <option value="2">Enrolled</option>
+                    <option value="3">In Abeyance</option>
+                    <option value="4">Incomplete</option>
+                    <option value="5">Other</option>
+                  </select>
+
+                  <label for="formalqual1" class="form-label form-select-lg mb-3 text-right">Is it a Formal / Informal Qualification?</label>
+                  <select id="formalqual1" name="formalqual1" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected></option>
+                    <option value="1">Formal</option>
+                    <option value="2">Informal</option>
+                  </select>
+
+                  <label for="provider1" class="form-label form-select-lg mb-3 text-right">Where was it provided?</label>
+                  <select id="provider1" name="provider1" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected></option>
+                    <option value="1">In-House</option>
+                    <option value="2">External</option>
+                  </select>
+
+                  <div class="mb-3">
+                    <label for="provider1name" class="form-label form-select-lg mb-3 text-right">Name of the Training Provider</label>
+                    <!-- <label for="same" class="form-label">Name</label> -->
+                    <input type="name" class="form-control form-select-lg mb-3" id="provider1name" name="provider1name" placeholder="" aria-label=".form-select-lg example">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="attendfrom1" class="form-label form-select-lg mb-3">Date of Attendance: Start</label>
+                    <!-- <label for="fundedfrom">From (date and time):</label> -->
+                    <input class="form-control form-select-lg mb-3" type="date" id="attendfrom1" name="attendfrom1">
+                </div>
+
+                <div class="mb-3">
+                    <label for="attendto1" class="form-label form-select-lg mb-3">Date of Attendance: Finish</label>
+                    <!-- <label for="fundedto">From (date and time):</label> -->
+                    <input class="form-control form-select-lg mb-3" type="date" id="attendto1" name="attendto1">
+                </div>
+
+                <label for="totalduration1" class="form-label form-select-lg mb-3 text-right">Total Duration</label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="totalduration1" id="totalduration1">
+                    <option selected></option>
+                    <option value="1">Less than a month</option>
+                    <option value="2">1 month</option>
+                    <option value="3">2 months</option>
+                    <option value="4">3 months</option>
+                    <option value="5">4 months</option>
+                    <option value="6">5 months</option>
+                    <option value="7">6 months</option>
+                    <option value="8">7 months</option>
+                    <option value="9">8 months</option>
+                    <option value="10">9 months</option>
+                    <option value="11">10 months</option>
+                    <option value="12">11 months</option>
+                    <option value="13">12 months</option>
+                    <option value="14">13 months</option>
+                    <option value="15">14 months</option>
+                    <option value="16">15 months</option>
+                    <option value="17">16 months</option>
+                    <option value="18">17 months</option>
+                    <option value="19">18 months</option>
+                    <option value="20">19 months</option>
+                    <option value="21">20 months</option>
+                    <option value="22">21 months</option>
+                    <option value="23">22 months</option>
+                    <option value="24">23 months</option>
+                    <option value="25">24 months</option>
+                    <option value="26">25 months</option>
+                    <option value="27">26 months</option>
+                    <option value="28">27 months</option>
+                    <option value="29">28 months</option>
+                    <option value="30">29 months</option>
+                    <option value="31">30 months</option>
+                    <option value="32">31 months</option>
+                    <option value="33">32 months</option>
+                    <option value="34">33 months</option>
+                    <option value="35">34 months</option>
+                    <option value="36">35 months</option>
+                    <option value="37">36 months</option>
+                    <option value="38">37 months</option>
+                    <option value="39">38 months</option>
+                    <option value="40">39 months</option>
+                    <option value="41">40 months</option>
+                    <option value="42">41 months</option>
+                    <option value="43">42 months</option>
+                    <option value="44">43 months</option>
+                    <option value="45">44 months</option>
+                    <option value="46">45 months</option>
+                    <option value="47">46 months</option>
+                    <option value="48">47 months</option>
+                    <option value="49">48 months</option>
+                    <option value="50">49 months</option>
+                    <option value="51">50 months</option>
+                    <option value="52">51 months</option>
+                    <option value="53">52 months</option>
+                    <option value="54">53 months</option>
+                    <option value="55">54 months</option>
+                    <option value="56">55 months</option>
+                    <option value="57">56 months</option>
+                    <option value="58">57 months</option>
+                    <option value="59">58 months</option>
+                    <option value="60">59 months</option>
+                    <option value="61">60 months</option>
+                    <option value="62">61 months</option>
+                    <option value="63">62 months</option>
+                    <option value="64">63 months</option>
+                    <option value="65">64 months</option>
+                    <option value="66">65 months</option>
+                    <option value="67">66 months</option>
+                    <option value="68">67 months</option>
+                    <option value="69">68 months</option>
+                    <option value="70">69 months</option>
+                    <option value="71">70 months</option>
+                    <option value="72">71 months</option>
+                    <option value="73">72 months</option>
+                </select>
+                <br>
+                <form method="POST">
+                    <label for="skillsareas1" class="form-label form-select-lg mb-3 text-center">Skills / Knowledge Areas</label>
+                    <textarea name="skillsareas1" id="skillsareas1" class="form-control form-select-lg mb-3"></textarea>
+                </form>
+                <br>
+
+                <div class="mb-3">
+                    <label for="course2name" class="form-label form-select-lg mb-3 text-right"><b>Course Name</b></label>
+                    <!-- <label for="same" class="form-label">Name</label> -->
+                    <input type="name" class="form-control form-select-lg mb-3" id="course2name" name="course2name" placeholder="Financial Accounting" aria-label=".form-select-lg example">
+                  </div>
+
+                <label for="nqflevel2" class="form-label form-select-lg mb-3 text-right">NQF Level</label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="nqflevel2" id="nqflevel2">
+                  <option selected></option>
+                  <option value="1">NQF 1 - Grade 9</option>
+                  <option value="2">NQF 2 - Grade 10 and National (vocational) Certificates level 2</option>
+                  <option value="3">NQF 3 - Grade 11 and National (vocational) Certificates level 3</option>
+                  <option value="4">NQF 4 - Grade 12 (National Senior Certificate) and National (vocational) Cert. level 4</option>
+                  <option value="5">NQF 5 - Higher Certificates and Advanced National (vocational) Cert.</option>
+                  <option value="6">NQF 6 - National Diploma and Advanced certificates</option>
+                  <option value="7">NQF 7 - Bachelor's degree, Advanced Diplomas, Post Graduate Certificate and B-tech</option>
+                  <option value="8">NQF 8 - Honours degree, Post Graduate diploma and Professional Qualifications</option>
+                  <option value="9">NQF 9 - Master's degree</option>
+                  <option value="10">NQF 10 - Doctor's degree</option>
+                </select>
+
+                <label for="intervention2" class="form-label form-select-lg mb-3 text-right">Type of Intervention</label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="intervention2" id="intervention2">
+                    <option selected></option>
+                    <option value="1">One-On-One Development</option>
+                    <option value="2">Internship / Experiential Learning</option>
+                    <option value="3">On-The-Job Training</option>
+                    <option value="4">Workshop</option>
+                    <option value="5">Workplace Experience</option>
+                    <option value="6">Learnership</option>
+                    <option value="7">Apprenticeship</option>
+                    <option value="8">Skills Programme</option>
+                    <option value="9">Graduate Development</option>
+                    <option value="10">Recognition of Prior Learning (RPL)</option>
+                  </select>
+
+                  <label for="competencylevel2" class="form-label form-select-lg mb-3 text-right">Competence Level</label>
+                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="competencylevel2" id="competencylevel2">
+                    <option selected></option>
+                    <option value="1">Novice</option>
+                    <option value="2">Intermediate</option>
+                    <option value="3">Advanced</option>
+                  </select>
+                <br>
+                
+<!--                 <label for="achtype2" class="form-label form-select-lg mb-3 text-right">Achievement Type</label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="achtype2" id="achtype2">
+                    <option selected></option>
+                    <option value="1">Recognition of Prior Learning (RPL)</option>
+                    <option value="2">Distance Learning</option>
+                    <option value="3">Work Place Learning</option>
+                    <option value="4">Blended Learning</option>
+                    <option value="5">Other</option>
+                </select> -->
+
+                <label for="qualstatus2" class="form-label form-select-lg mb-3 text-right">Qualification Status</label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="qualstatus2" id="qualstatus2">
+                    <option selected></option>
+                    <option value="1">Achieved</option>
+                    <option value="2">Enrolled</option>
+                    <option value="3">In Abeyance</option>
+                    <option value="4">Incomplete</option>
+                    <option value="5">Other</option>
+                  </select>
+
+                  <label for="formalqual2" class="form-label form-select-lg mb-3 text-right">Is it a Formal / Informal Qualification?</label>
+                  <select id="formalqual2" name="formalqual2" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected></option>
+                    <option value="1">Formal</option>
+                    <option value="2">Informal</option>
+                  </select>
+
+                  <label for="provider2" class="form-label form-select-lg mb-3 text-right">Where was it provided?</label>
+                  <select id="provider2" name="provider2" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected></option>
+                    <option value="1">In-House</option>
+                    <option value="2">External</option>
+                  </select>
+
+                  <div class="mb-3">
+                    <label for="provider2name" class="form-label form-select-lg mb-3 text-right">Name of the Training Provider</label>
+                    <!-- <label for="same" class="form-label">Name</label> -->
+                    <input type="name" class="form-control form-select-lg mb-3" id="provider2name" name="provider2name" placeholder="" aria-label=".form-select-lg example">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="attendfrom2" class="form-label form-select-lg mb-3">Date of Attendance: Start</label>
+                    <!-- <label for="fundedfrom">From (date and time):</label> -->
+                    <input class="form-control form-select-lg mb-3" type="date" id="attendfrom2" name="attendfrom2">
+                </div>
+
+                <div class="mb-3">
+                    <label for="attendto2" class="form-label form-select-lg mb-3">Date of Attendance: Finish</label>
+                    <!-- <label for="fundedto">From (date and time):</label> -->
+                    <input class="form-control form-select-lg mb-3" type="date" id="attendto2" name="attendto2">
+                </div>
+
+                <label for="totalduration2" class="form-label form-select-lg mb-3 text-right">Total Duration</label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="totalduration2" id="totalduration2">
+                    <option selected></option>
+                    <option value="1">Less than a month</option>
+                    <option value="2">1 month</option>
+                    <option value="3">2 months</option>
+                    <option value="4">3 months</option>
+                    <option value="5">4 months</option>
+                    <option value="6">5 months</option>
+                    <option value="7">6 months</option>
+                    <option value="8">7 months</option>
+                    <option value="9">8 months</option>
+                    <option value="10">9 months</option>
+                    <option value="11">10 months</option>
+                    <option value="12">11 months</option>
+                    <option value="13">12 months</option>
+                    <option value="14">13 months</option>
+                    <option value="15">14 months</option>
+                    <option value="16">15 months</option>
+                    <option value="17">16 months</option>
+                    <option value="18">17 months</option>
+                    <option value="19">18 months</option>
+                    <option value="20">19 months</option>
+                    <option value="21">20 months</option>
+                    <option value="22">21 months</option>
+                    <option value="23">22 months</option>
+                    <option value="24">23 months</option>
+                    <option value="25">24 months</option>
+                    <option value="26">25 months</option>
+                    <option value="27">26 months</option>
+                    <option value="28">27 months</option>
+                    <option value="29">28 months</option>
+                    <option value="30">29 months</option>
+                    <option value="31">30 months</option>
+                    <option value="32">31 months</option>
+                    <option value="33">32 months</option>
+                    <option value="34">33 months</option>
+                    <option value="35">34 months</option>
+                    <option value="36">35 months</option>
+                    <option value="37">36 months</option>
+                    <option value="38">37 months</option>
+                    <option value="39">38 months</option>
+                    <option value="40">39 months</option>
+                    <option value="41">40 months</option>
+                    <option value="42">41 months</option>
+                    <option value="43">42 months</option>
+                    <option value="44">43 months</option>
+                    <option value="45">44 months</option>
+                    <option value="46">45 months</option>
+                    <option value="47">46 months</option>
+                    <option value="48">47 months</option>
+                    <option value="49">48 months</option>
+                    <option value="50">49 months</option>
+                    <option value="51">50 months</option>
+                    <option value="52">51 months</option>
+                    <option value="53">52 months</option>
+                    <option value="54">53 months</option>
+                    <option value="55">54 months</option>
+                    <option value="56">55 months</option>
+                    <option value="57">56 months</option>
+                    <option value="58">57 months</option>
+                    <option value="59">58 months</option>
+                    <option value="60">59 months</option>
+                    <option value="61">60 months</option>
+                    <option value="62">61 months</option>
+                    <option value="63">62 months</option>
+                    <option value="64">63 months</option>
+                    <option value="65">64 months</option>
+                    <option value="66">65 months</option>
+                    <option value="67">66 months</option>
+                    <option value="68">67 months</option>
+                    <option value="69">68 months</option>
+                    <option value="70">69 months</option>
+                    <option value="71">70 months</option>
+                    <option value="72">71 months</option>
+                    <option value="73">72 months</option>
+                </select>
+                <br>
+                <form method="POST">
+                    <label for="skillsareas2" class="form-label form-select-lg mb-3 text-center">Skills / Knowledge Areas</label>
+                    <textarea name="skillsareas2" id="skillsareas2" class="form-control form-select-lg mb-3"></textarea>
+                </form>
+                <br>
+
+                <div class="mb-3">
+                <label for="course3name" class="form-label form-select-lg mb-3 text-right"><b>Course Name</b></label>
+                <!-- <label for="same" class="form-label">Name</label> -->
+                <input type="name" class="form-control form-select-lg mb-3" id="course3name" name="course3name" placeholder="Bookkeeping" aria-label=".form-select-lg example">
+              </div>
+
+            <label for="nqflevel3" class="form-label form-select-lg mb-3 text-right">NQF Level</label>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="nqflevel3" id="nqflevel3">
+              <option selected></option>
+              <option value="1">NQF 1 - Grade 9</option>
+              <option value="2">NQF 2 - Grade 10 and National (vocational) Certificates level 2</option>
+              <option value="3">NQF 3 - Grade 11 and National (vocational) Certificates level 3</option>
+              <option value="4">NQF 4 - Grade 12 (National Senior Certificate) and National (vocational) Cert. level 4</option>
+              <option value="5">NQF 5 - Higher Certificates and Advanced National (vocational) Cert.</option>
+              <option value="6">NQF 6 - National Diploma and Advanced certificates</option>
+              <option value="7">NQF 7 - Bachelor's degree, Advanced Diplomas, Post Graduate Certificate and B-tech</option>
+              <option value="8">NQF 8 - Honours degree, Post Graduate diploma and Professional Qualifications</option>
+              <option value="9">NQF 9 - Master's degree</option>
+              <option value="10">NQF 10 - Doctor's degree</option>
+            </select>
+
+            <label for="intervention3" class="form-label form-select-lg mb-3 text-right">Type of Intervention</label>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="intervention3" id="intervention3">
+                <option selected></option>
+                <option value="1">One-On-One Development</option>
+                <option value="2">Internship / Experiential Learning</option>
+                <option value="3">On-The-Job Training</option>
+                <option value="4">Workshop</option>
+                <option value="5">Workplace Experience</option>
+                <option value="6">Learnership</option>
+                <option value="7">Apprenticeship</option>
+                <option value="8">Skills Programme</option>
+                <option value="9">Graduate Development</option>
+                <option value="10">Recognition of Prior Learning (RPL)</option>
+              </select>
+
+              <label for="competencylevel3" class="form-label form-select-lg mb-3 text-right">Competence Level</label>
+              <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="competencylevel3" id="competencylevel3">
+                <option selected></option>
+                <option value="1">Novice</option>
+                <option value="2">Intermediate</option>
+                <option value="3">Advanced</option>
+              </select>
+            <br>
+            
+<!--                 <label for="achtype2" class="form-label form-select-lg mb-3 text-right">Achievement Type</label>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="achtype2" id="achtype2">
+                <option selected></option>
+                <option value="1">Recognition of Prior Learning (RPL)</option>
+                <option value="2">Distance Learning</option>
+                <option value="3">Work Place Learning</option>
+                <option value="4">Blended Learning</option>
+                <option value="5">Other</option>
+            </select> -->
+
+            <label for="qualstatus3" class="form-label form-select-lg mb-3 text-right">Qualification Status</label>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="qualstatus3" id="qualstatus3">
+                <option selected></option>
+                <option value="1">Achieved</option>
+                <option value="2">Enrolled</option>
+                <option value="3">In Abeyance</option>
+                <option value="4">Incomplete</option>
+                <option value="5">Other</option>
+              </select>
+
+              <label for="formalqual3" class="form-label form-select-lg mb-3 text-right">Is it a Formal / Informal Qualification?</label>
+              <select id="formalqual3" name="formalqual3" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected></option>
+                <option value="1">Formal</option>
+                <option value="2">Informal</option>
+              </select>
+
+              <label for="provider3" class="form-label form-select-lg mb-3 text-right">Where was it provided?</label>
+              <select id="provider3" name="provider3" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected></option>
+                <option value="1">In-House</option>
+                <option value="2">External</option>
+              </select>
+
+              <div class="mb-3">
+                <label for="provider3name" class="form-label form-select-lg mb-3 text-right">Name of the Training Provider</label>
+                <!-- <label for="same" class="form-label">Name</label> -->
+                <input type="name" class="form-control form-select-lg mb-3" id="provider3name" name="provider3name" placeholder="" aria-label=".form-select-lg example">
+              </div>
+
+              <div class="mb-3">
+                <label for="attendfrom3" class="form-label form-select-lg mb-3">Date of Attendance: Start</label>
+                <!-- <label for="fundedfrom">From (date and time):</label> -->
+                <input class="form-control form-select-lg mb-3" type="date" id="attendfrom3" name="attendfrom3">
+            </div>
+
+            <div class="mb-3">
+                <label for="attendto3" class="form-label form-select-lg mb-3">Date of Attendance: Finish</label>
+                <!-- <label for="fundedto">From (date and time):</label> -->
+                <input class="form-control form-select-lg mb-3" type="date" id="attendto3" name="attendto3">
+            </div>
+
+            <label for="totalduration3" class="form-label form-select-lg mb-3 text-right">Total Duration</label>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="totalduration3" id="totalduration3">
+                <option selected></option>
+                <option value="1">Less than a month</option>
+                <option value="2">1 month</option>
+                <option value="3">2 months</option>
+                <option value="4">3 months</option>
+                <option value="5">4 months</option>
+                <option value="6">5 months</option>
+                <option value="7">6 months</option>
+                <option value="8">7 months</option>
+                <option value="9">8 months</option>
+                <option value="10">9 months</option>
+                <option value="11">10 months</option>
+                <option value="12">11 months</option>
+                <option value="13">12 months</option>
+                <option value="14">13 months</option>
+                <option value="15">14 months</option>
+                <option value="16">15 months</option>
+                <option value="17">16 months</option>
+                <option value="18">17 months</option>
+                <option value="19">18 months</option>
+                <option value="20">19 months</option>
+                <option value="21">20 months</option>
+                <option value="22">21 months</option>
+                <option value="23">22 months</option>
+                <option value="24">23 months</option>
+                <option value="25">24 months</option>
+                <option value="26">25 months</option>
+                <option value="27">26 months</option>
+                <option value="28">27 months</option>
+                <option value="29">28 months</option>
+                <option value="30">29 months</option>
+                <option value="31">30 months</option>
+                <option value="32">31 months</option>
+                <option value="33">32 months</option>
+                <option value="34">33 months</option>
+                <option value="35">34 months</option>
+                <option value="36">35 months</option>
+                <option value="37">36 months</option>
+                <option value="38">37 months</option>
+                <option value="39">38 months</option>
+                <option value="40">39 months</option>
+                <option value="41">40 months</option>
+                <option value="42">41 months</option>
+                <option value="43">42 months</option>
+                <option value="44">43 months</option>
+                <option value="45">44 months</option>
+                <option value="46">45 months</option>
+                <option value="47">46 months</option>
+                <option value="48">47 months</option>
+                <option value="49">48 months</option>
+                <option value="50">49 months</option>
+                <option value="51">50 months</option>
+                <option value="52">51 months</option>
+                <option value="53">52 months</option>
+                <option value="54">53 months</option>
+                <option value="55">54 months</option>
+                <option value="56">55 months</option>
+                <option value="57">56 months</option>
+                <option value="58">57 months</option>
+                <option value="59">58 months</option>
+                <option value="60">59 months</option>
+                <option value="61">60 months</option>
+                <option value="62">61 months</option>
+                <option value="63">62 months</option>
+                <option value="64">63 months</option>
+                <option value="65">64 months</option>
+                <option value="66">65 months</option>
+                <option value="67">66 months</option>
+                <option value="68">67 months</option>
+                <option value="69">68 months</option>
+                <option value="70">69 months</option>
+                <option value="71">70 months</option>
+                <option value="72">71 months</option>
+                <option value="73">72 months</option>
+            </select>
+            <br>
+            <form method="POST">
+                <label for="skillsareas3" class="form-label form-select-lg mb-3 text-center">Skills / Knowledge Areas</label>
+                <textarea name="skillsareas3" id="skillsareas3" class="form-control form-select-lg mb-3"></textarea>
+            </form>
+            <br>
+
+                <div>
+                    <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/membership'">&laquo; Prev</button>
+                    <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/competencies'">Next &raquo;</button> 
+                </div>
+              </div>        
+          </form>
+        </div>
+    </div>
+</div>
+    
+<script>
+    $(document).ready(function() {
+        $("select.selectVal").change(function() {
+            let selectedItem = $(this).children("option:selected").val();
+            alert("You have selected the name - " + selectedItem);
+          });
+      });
+</script>    
+<script>
+    function changeButtonName(btnId, btnValue) {
+        var btn = document.getElementById("i-greitis-dropdown");
+    }
+</script>
+{% endblock %}
+    

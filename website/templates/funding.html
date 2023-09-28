@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}Funding{% endblock %}
+
+<style>
+  a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+  }
+  
+  a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .previous {
+    background-color: #f1f1f1;
+    color: black;
+  }
+  
+  .next {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .round {
+    border-radius: 50%;
+  }
+</style>
+
+{% block content %}
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-lg-5 col-md-6 m-auto card p-4">
+        <form action="{{ url_for('views.funding') }}" method="POST" class="card-body">  
+          <form action="/action_page.php"></form>        
+                      <!-- <h4 align="right">Welcome {{ current_user.username }}</h4> -->
+            <div class="container py-4">
+                <h1 align="center">Funding Details</h1>
+                  <br>
+                  <h6 align="center">If you are currently undertaking tertiary studies that are funded by the municipality, please provide the following information</h6>
+                  <br>
+                    <div class="mb-3">
+                        <label for="fundedqual" class="form-label form-select-lg mb-3 text-right">Name of Funded Qualification/Course</label>
+                        <input type="name" class="form-control form-select-lg mb-3" id="fundedqual" name="fundedqual" placeholder="Postgrad Diploma In Accounting" aria-label=".form-select-lg example">
+                    </div>
+
+                    
+                        <!--  <br> -->
+                    <div class="mb-3">
+                        <label for="fundedperiod" class="form-label form-select-lg mb-3">Funding Period: From</label>
+                        <!-- <label for="fundedfrom">From (date and time):</label> -->
+                        <input class="form-control form-select-lg mb-3" type="date" id="fundedfrom" name="fundedfrom">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fundedperiod" class="form-label form-select-lg mb-3">Funding Period: To</label>
+                        <!-- <label for="fundedto">From (date and time):</label> -->
+                        <input class="form-control form-select-lg mb-3" type="date" id="fundedto" name="fundedto">
+                    </div>
+
+                    
+
+                    <label for="typeoffund" class="form-label form-select-lg mb-3 text-right">Type of Funding</label>
+                    <select id="typeoffund" name="typeoffund" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected></option>
+                        <option value="1">Bursary</option>
+                        <option value="2">Loan</option>
+                        <option value="3">Other</option>
+                    </select>
+
+                    <div class="mb-3">
+                        <label for="amount" class="form-label form-select-lg mb-3">Amount Outstanding as at Today</label>
+                        <input type="amount" class="form-control form-select-lg mb-3" name="amount" id="amount" placeholder="R30000">
+                    </div>
+
+                    <div>
+                      <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/qualdetails'">&laquo; Prev</button>
+                      <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/occupation'">Next &raquo;</button> 
+                    </div>
+                            
+                    <!-- <div>
+                      <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/qualdetails'">&laquo; Prev</button>
+                      <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/occupation'">Next &raquo;</button>
+                    </div> -->
+          </div>
+     
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+      $("select.selectVal").change(function() {
+          let selectedItem = $(this).children("option:selected").val();
+          alert("You have selected the name - " + selectedItem);
+        });
+    });
+</script>
+<script>
+  function changeButtonName(btnId, btnValue) {
+      var btn = document.getElementById("i-greitis-dropdown");
+  }
+</script>
+{% endblock %}

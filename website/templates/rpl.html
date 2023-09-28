@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block title %}RPL{% endblock %}
+
+<style>
+  a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+  }
+  
+  a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .previous {
+    background-color: #f1f1f1;
+    color: black;
+  }
+  
+  .next {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .round {
+    border-radius: 50%;
+  }
+</style>
+
+{% block content %}
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-lg-5 col-md-6 m-auto card p-4">
+        <form action="{{ url_for('views.funding') }}" method="POST" class="card-body">  
+          <form action="/action_page.php"></form>        
+                      <!-- <h4 align="right">Welcome {{ current_user.username }}</h4> -->
+            <div class="container py-4">
+                <h1 align="center">Recognition of Prior Learning (RPL)</h1>
+                  <br>
+                  <!-- <h6 align="center">If you are currently undertaking tertiary studies that are funded by the municipality, please provide the following information</h6>
+                  <br> -->
+                    
+                    <label for="rplassessment" class="form-label form-select-lg mb-3 text-right">Have you done the RPL assessment?</label>
+                    <select id="rplassessment" name="rplassessment" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected></option>
+                        <option value="1">Completed</option>
+                        <option value="2">To be done</option>
+                    </select>
+
+                    <div class="mb-3">
+                        <label for="assessmentarea" class="form-label form-select-lg mb-3 text-right">Area of Assessment</label>
+                        <input type="name" class="form-control form-select-lg mb-3" id="assessmentarea" name="assessmentarea" placeholder="" aria-label=".form-select-lg example">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="assessmentdate" class="form-label form-select-lg mb-3">Date of Assessment?</label>
+                        <input class="form-control form-select-lg mb-3" type="date" id="assessmentdate" name="assessmentdate">
+                    </div>
+                    <br>
+
+                    <label for="rploutcome" class="form-label form-select-lg mb-3 text-right">RPL Assessment Outcome</label>
+                    <select id="rploutcome" name="rploutcome" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected></option>
+                        <option value="1">Full Qualification</option>
+                        <option value="2">Partial Qualification</option>
+                        <option value="3">Credits Or Units Towards A Qualification</option>
+                        <option value="4">Exemption From An Academic Prerequisite For Entering The Formal Education And Training System Or From All Or Part Of The Curriculum</option>
+                        <option value="5">Positioning Potential Learners On Formal Learning Pathways (E.G. Before Continuing Training)</option>
+                        <option value="6">Certificate Of Labour Market Competencies</option>
+                        <option value="7">No Recognition</option>
+                    </select>
+
+                    <label for="nqflevel" class="form-label form-select-lg mb-3 text-right">NQF Level</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="nqflevel" id="nqflevel">
+                        <option selected></option>
+                        <option value="1">NQF 1 - Grade 9</option>
+                        <option value="2">NQF 2 - Grade 10 and National (vocational) Certificates level 2</option>
+                        <option value="3">NQF 3 - Grade 11 and National (vocational) Certificates level 3</option>
+                        <option value="4">NQF 4 - Grade 12 (National Senior Certificate) and National (vocational) Cert. level 4</option>
+                        <option value="5">NQF 5 - Higher Certificates and Advanced National (vocational) Cert.</option>
+                        <option value="6">NQF 6 - National Diploma and Advanced certificates</option>
+                        <option value="7">NQF 7 - Bachelor's degree, Advanced Diplomas, Post Graduate Certificate and B-tech</option>
+                        <option value="8">NQF 8 - Honours degree, Post Graduate diploma and Professional Qualifications</option>
+                        <option value="9">NQF 9 - Master's degree</option>
+                        <option value="10">NQF 10 - Doctor's degree</option>
+                      </select>
+                    <br>
+
+                    <div>
+                      <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/nationalkpis'">&laquo; Prev</button>
+                      <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/knowledge'">Next &raquo;</button> 
+                    </div>
+          </div>
+     
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+      $("select.selectVal").change(function() {
+          let selectedItem = $(this).children("option:selected").val();
+          alert("You have selected the name - " + selectedItem);
+        });
+    });
+</script>
+<script>
+  function changeButtonName(btnId, btnValue) {
+      var btn = document.getElementById("i-greitis-dropdown");
+  }
+</script>
+{% endblock %}

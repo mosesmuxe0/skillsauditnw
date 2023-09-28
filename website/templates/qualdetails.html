@@ -1,0 +1,443 @@
+{% extends "base.html" %}
+{% block title %}Knowledge{% endblock %}
+
+<script type="text/javascript">
+    function showfield(name){
+        if(name == 'Other') {
+            document.getElementById('div1').innerHTML = 'Other: <input type="text" name="other" />';
+        }
+        else {
+            document.getElementById('div1').innerHTML='';
+        }	
+    }
+    </script>
+
+{% block content %}
+{% if current_user.is_authenticated %}
+
+<div class="container">
+  <div class="row mt-4">
+      <div class="col-lg-5 col-md-6 m-auto card p-4">
+          <form action="{{ request.path }}" method="POST" class="card-body">
+                      <form action="/action_page.php"></form>
+                      
+                      <!-- <h4 align="right">Welcome {{ current_user.username }}</h4> -->
+                      <div class="container py-4">
+                        <h1 align="center">Qualifications</h1>
+                        <br>
+                            <div class="mb-3">
+                                <label for="qual1name" class="form-label form-select-lg mb-3 text-right"><b>Name of Qualification</b></label>
+                                <!-- <label for="same" class="form-label">Name</label> -->
+                                <input type="name" class="form-control form-select-lg mb-3" id="qual1name" name="qual1name" placeholder="National Diploma In Financial Accounting" aria-label=".form-select-lg example">
+                              </div>
+
+                            <label for="level1" class="form-label form-select-lg mb-3 text-right">Level of Qualification</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="level1" id="level1">
+                              <option selected></option>
+                              <option value="1">NQF 1 - Grade 9</option>
+                              <option value="2">NQF 2 - Grade 10 and National (vocational) Certificates level 2</option>
+                              <option value="3">NQF 3 - Grade 11 and National (vocational) Certificates level 3</option>
+                              <option value="4">NQF 4 - Grade 12 (National Senior Certificate) and National (vocational) Cert. level 4</option>
+                              <option value="5">NQF 5 - Higher Certificates and Advanced National (vocational) Cert.</option>
+                              <option value="6">NQF 6 - National Diploma and Advanced certificates</option>
+                              <option value="7">NQF 7 - Bachelor's degree, Advanced Diplomas, Post Graduate Certificate and B-tech</option>
+                              <option value="8">NQF 8 - Honours degree, Post Graduate diploma and Professional Qualifications</option>
+                              <option value="9">NQF 9 - Master's degree</option>
+                              <option value="10">NQF 10 - Doctor's degree</option>
+                            </select>
+
+                            <div>
+                                <label for="addqualification" class="form-label form-select-lg mb-3">Add Qualification/Certificate</label>
+                                <input class="form-control form-control-lg text-primary" id="formFileLg" type="file">
+                              </div>
+                              <br>
+
+                            <label for="achievetype1" class="form-label form-select-lg mb-3 text-right">Achievement Type</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="achievetype1" id="achievetype1">
+                              <option selected></option>
+                              <option value="1">Recognition of Prior Learning (RPL)</option>
+                              <option value="2">Distance Learning</option>
+                              <option value="3">Work Place Learning</option>
+                              <option value="4">Blended Learning</option>
+                              <option value="4">Other</option>
+                            </select>
+
+                            <div class="mb-3">
+                                <label for="qual1surname" class="form-label form-select-lg mb-3">Surname on the Qualification</label>
+                                <input type="surname" class="form-control form-select-lg mb-3" id="qual1surname" name="qual1surname" placeholder="">
+                              </div>
+
+                            <label for="institution1" class="form-label form-select-lg mb-3 text-right">Institution</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="institution1" id="institution1" onchange="showfield(this.options[this.selectedIndex].value)" required>
+                              <option selected></option>
+                              <option value="1">Other</option>
+                              <option value="2">University of Cape Town</option>
+                              <option value="3">University of Fort Hare</option>
+                              <option value="4">University of the Free State</option>
+                              <option value="5">University of KwaZulu-Natal</option>
+                              <option value="6">University of Limpopo</option>
+                              <option value="7">North-West University</option>
+                              <option value="8">University of Pretoria</option>
+                              <option value="9">Rhodes University</option>
+                              <option value="10">Sefako Makgatho Health Sciences University</option>
+                              <option value="11">University of Stellenbosch</option>
+                              <option value="12">University of the Western Cape</option>
+                              <option value="13">University of the Witwatersrand</option>
+                              <option value="14">University of Johannesburg</option>
+                              <option value="15">Nelson Mandela University</option>
+                              <option value="16">University of South Africa</option>
+                              <option value="17">University of Venda</option>
+                              <option value="18">Walter Sisulu University</option>
+                              <option value="19">University of Zululand</option>
+                              <option value="20">Cape Peninsula University of Technology</option>
+                              <option value="21">Central University of Technology</option>
+                              <option value="22">Durban University of Technology</option>
+                              <option value="23">Mangosuthu University of Technology</option>
+                              <option value="24">University of Mpumalanga</option>
+                              <option value="25">Sol Plaatje University</option>
+                              <option value="26">Tshwane University of Technology</option>
+                              <option value="27">Vaal University of Technology</option>
+                              <option value="28">Auckland Park Theological Seminary</option>
+                              <option value="29">Open Christian University</option>
+                              <option value="30">Baptist Theological College of Southern Africa</option>
+                              <option value="31">George Whitefield College</option>
+                              <option value="32">South African Theological Seminary</option>
+                              <option value="33">St Augustine College of South Africa</option>
+                              <option value="34">Two Oceans Graduate Institute</option>
+                              <option value="35">Cape Higher Education Consortium (CHEC)</option>
+                              <option value="36">Foundation of Tertiary Institutions of the Northern Metropolis (FOTIM)</option>
+                              <option value="37">Higher Education South Africa (HESA)</option>
+                              <option value="38">Southern Education and Research Alliance (SERA)</option>
+                              <option value="39">Bond South Africa</option>
+                              <option value="40">Border Technikon</option>
+                              <option value="41">University of Bophuthatswana</option>
+                              <option value="42">University of the Cape of Good Hope</option>
+                              <option value="43">Cape Technikon</option>
+                              <option value="44">University of Durban-Westville</option>
+                              <option value="45">Eastern Cape Technikon</option>
+                              <option value="46">Medical University of South Africa</option>
+                              <option value="47">Technikon Natal</option>
+                              <option value="48">University of the North</option>
+                              <option value="49">University of Natal</option>
+                              <option value="50">University of North-West, formerly the University of Bophuthatswana</option>
+                              <option value="51">Port Elizabeth Technikon.</option>
+                              <option value="52">University of Port Elizabeth</option>
+                              <option value="53">Potchefstroom University for Christian Higher Education</option>
+                              <option value="54">Rand Afrikaans University</option>
+                              <option value="55">Technikon SA</option>
+                              <option value="56">Transvaal University College</option>
+                              <option value="57">University of Transkei</option>
+                              <option value="58">University of Gazankulu</option>
+                              <option value="59">Vista University</option>
+                              <option value="60">Technikon Witwatersrand</option>
+                            </select>
+                            <div id="div1"></div>
+
+                            <label for="qual1status" class="form-label form-select-lg mb-3 text-right">Qualification Status</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="qual1status" id="qual1status">
+                              <option selected></option>
+                              <option value="1">Achieved</option>
+                              <option value="2">Enrolled</option>
+                              <option value="3">In Abeyance</option>
+                              <option value="4">Incomplete</option>
+                              <option value="5">Other</option>
+                            </select>
+
+                            <div class="mb-3">
+                                <label for="qual2name" class="form-label form-select-lg mb-3 text-right"><b>Name of Other Qualification</b></label>
+                                <!-- <label for="same" class="form-label">Name</label> -->
+                                <input type="name" class="form-control form-select-lg mb-3" id="qual2name" name="qual2name" placeholder="Higher Certificate In IT" aria-label=".form-select-lg example">
+                              </div>
+
+                            <label for="level2" class="form-label form-select-lg mb-3 text-right">Level of Other Qualification</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="level2" id="level2">
+                              <option selected></option>
+                              <option value="1">NQF 1 - Grade 9</option>
+                              <option value="2">NQF 2 - Grade 10 and National (vocational) Certificates level 2</option>
+                              <option value="3">NQF 3 - Grade 11 and National (vocational) Certificates level 3</option>
+                              <option value="4">NQF 4 - Grade 12 (National Senior Certificate) and National (vocational) Cert. level 4</option>
+                              <option value="5">NQF 5 - Higher Certificates and Advanced National (vocational) Cert.</option>
+                              <option value="6">NQF 6 - National Diploma and Advanced certificates</option>
+                              <option value="7">NQF 7 - Bachelor's degree, Advanced Diplomas, Post Graduate Certificate and B-tech</option>
+                              <option value="8">NQF 8 - Honours degree, Post Graduate diploma and Professional Qualifications</option>
+                              <option value="9">NQF 9 - Master's degree</option>
+                              <option value="10">NQF 10 - Doctor's degree</option>
+                            </select>
+
+                            <div>
+                                <label for="addqualification" class="form-label form-select-lg mb-3">Add Qualification/Certificate</label>
+                                <input class="form-control form-control-lg text-primary id="formFileLg" type="file">
+                              </div>
+                              <br>
+
+                            <label for="achievetype2" class="form-label form-select-lg mb-3 text-right">Achievement Type</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="achievetype2" id="achievetype2">
+                              <option selected></option>
+                              <option value="1">Recognition of Prior Learning (RPL)</option>
+                              <option value="2">Distance Learning</option>
+                              <option value="3">Work Place Learning</option>
+                              <option value="4">Blended Learning</option>
+                              <option value="5">Other</option>
+                            </select>
+
+                            <div class="mb-3">
+                                <label for="qual2surname" class="form-label form-select-lg mb-3">Surname on the Other Qualification</label>
+                                <input type="surname" class="form-control form-select-lg mb-3" id="qual2surname" name="qual2surname" placeholder="">
+                              </div>
+
+                            <label for="institution2" class="form-label form-select-lg mb-3 text-right">Institution</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="institution2" id="institution2">
+                              <option selected></option>
+                              <option value="1">Other</option>
+                              <option value="2">University of Cape Town</option>
+                              <option value="3">University of Fort Hare</option>
+                              <option value="4">University of the Free State</option>
+                              <option value="5">University of KwaZulu-Natal</option>
+                              <option value="6">University of Limpopo</option>
+                              <option value="7">North-West University</option>
+                              <option value="8">University of Pretoria</option>
+                              <option value="9">Rhodes University</option>
+                              <option value="10">Sefako Makgatho Health Sciences University</option>
+                              <option value="11">University of Stellenbosch</option>
+                              <option value="12">University of the Western Cape</option>
+                              <option value="13">University of the Witwatersrand</option>
+                              <option value="14">University of Johannesburg</option>
+                              <option value="15">Nelson Mandela University</option>
+                              <option value="16">University of South Africa</option>
+                              <option value="17">University of Venda</option>
+                              <option value="18">Walter Sisulu University</option>
+                              <option value="19">University of Zululand</option>
+                              <option value="20">Cape Peninsula University of Technology</option>
+                              <option value="21">Central University of Technology</option>
+                              <option value="22">Durban University of Technology</option>
+                              <option value="23">Mangosuthu University of Technology</option>
+                              <option value="24">University of Mpumalanga</option>
+                              <option value="25">Sol Plaatje University</option>
+                              <option value="26">Tshwane University of Technology</option>
+                              <option value="27">Vaal University of Technology</option>
+                              <option value="28">Auckland Park Theological Seminary</option>
+                              <option value="29">Open Christian University</option>
+                              <option value="30">Baptist Theological College of Southern Africa</option>
+                              <option value="31">George Whitefield College</option>
+                              <option value="32">South African Theological Seminary</option>
+                              <option value="33">St Augustine College of South Africa</option>
+                              <option value="34">Two Oceans Graduate Institute</option>
+                              <option value="35">Cape Higher Education Consortium (CHEC)</option>
+                              <option value="36">Foundation of Tertiary Institutions of the Northern Metropolis (FOTIM)</option>
+                              <option value="37">Higher Education South Africa (HESA)</option>
+                              <option value="38">Southern Education and Research Alliance (SERA)</option>
+                              <option value="39">Bond South Africa</option>
+                              <option value="40">Border Technikon</option>
+                              <option value="41">University of Bophuthatswana</option>
+                              <option value="42">University of the Cape of Good Hope</option>
+                              <option value="43">Cape Technikon</option>
+                              <option value="44">University of Durban-Westville</option>
+                              <option value="45">Eastern Cape Technikon</option>
+                              <option value="46">Medical University of South Africa</option>
+                              <option value="47">Technikon Natal</option>
+                              <option value="48">University of the North</option>
+                              <option value="49">University of Natal</option>
+                              <option value="50">University of North-West, formerly the University of Bophuthatswana</option>
+                              <option value="51">Port Elizabeth Technikon.</option>
+                              <option value="52">University of Port Elizabeth</option>
+                              <option value="53">Potchefstroom University for Christian Higher Education</option>
+                              <option value="54">Rand Afrikaans University</option>
+                              <option value="55">Technikon SA</option>
+                              <option value="56">Transvaal University College</option>
+                              <option value="57">University of Transkei</option>
+                              <option value="58">University of Gazankulu</option>
+                              <option value="59">Vista University</option>
+                              <option value="60">Technikon Witwatersrand</option>
+                            </select>
+
+                            <label for="qual2status" class="form-label form-select-lg mb-3 text-right">Qualification Status</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="qual2status" id="qual2status">
+                              <option selected></option>
+                              <option value="1">Achieved</option>
+                              <option value="2">Enrolled</option>
+                              <option value="3">In Abeyance</option>
+                              <option value="4">Incomplete</option>
+                              <option value="5">Other</option>
+                            </select>
+
+                            <div class="mb-3">
+                                <label for="qual3name" class="form-label form-select-lg mb-3 text-right"><b>Name of Other Qualification</b></label>
+                                <!-- <label for="same" class="form-label">Name</label> -->
+                                <input type="name" class="form-control form-select-lg mb-3" id="qual3name" name="qual3name" placeholder="Postgraduate Diploma In Management" aria-label=".form-select-lg example">
+                              </div>
+                              <br>
+
+                            <label for="level3" class="form-label form-select-lg mb-3 text-right">Level of Other Qualification</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="level3" id="level3">
+                              <option selected></option>
+                              <option value="1">NQF 1 - Grade 9</option>
+                              <option value="2">NQF 2 - Grade 10 and National (vocational) Certificates level 2</option>
+                              <option value="3">NQF 3 - Grade 11 and National (vocational) Certificates level 3</option>
+                              <option value="4">NQF 4 - Grade 12 (National Senior Certificate) and National (vocational) Cert. level 4</option>
+                              <option value="5">NQF 5 - Higher Certificates and Advanced National (vocational) Cert.</option>
+                              <option value="6">NQF 6 - National Diploma and Advanced certificates</option>
+                              <option value="7">NQF 7 - Bachelor's degree, Advanced Diplomas, Post Graduate Certificate and B-tech</option>
+                              <option value="8">NQF 8 - Honours degree, Post Graduate diploma and Professional Qualifications</option>
+                              <option value="9">NQF 9 - Master's degree</option>
+                              <option value="10">NQF 10 - Doctor's degree</option>
+                            </select>
+
+                            <div>
+                                <label for="addqualification" class="form-label form-select-lg mb-3">Add Qualification/Certificate</label>
+                                <input class="form-control form-control-lg text-primary" id="formFileLg" type="file">
+                              </div>
+                              <br>
+
+                            <label for="achievetype3" class="form-label form-select-lg mb-3 text-right">Achievement Type</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="achievetype3" id="achievetype3">
+                              <option selected></option>
+                              <option value="1">Recognition of Prior Learning (RPL)</option>
+                              <option value="2">Distance Learning</option>
+                              <option value="3">Work Place Learning</option>
+                              <option value="4">Blended Learning</option>
+                              <option value="5">Other</option>
+                            </select>
+
+                            <div class="mb-3">
+                                <label for="qual3surname" class="form-label form-select-lg mb-3">Surname on the Other Qualification</label>
+                                <input type="surname" class="form-control form-select-lg mb-3" id="qual3surname" name="qual3surname" placeholder="">
+                              </div>
+
+                            <label for="institution3" class="form-label form-select-lg mb-3 text-right">Institution</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="institution3" id="institution3">
+                              <option selected></option>
+                              <option value="1">Other</option>
+                              <option value="2">University of Cape Town</option>
+                              <option value="3">University of Fort Hare</option>
+                              <option value="4">University of the Free State</option>
+                              <option value="5">University of KwaZulu-Natal</option>
+                              <option value="6">University of Limpopo</option>
+                              <option value="7">North-West University</option>
+                              <option value="8">University of Pretoria</option>
+                              <option value="9">Rhodes University</option>
+                              <option value="10">Sefako Makgatho Health Sciences University</option>
+                              <option value="11">University of Stellenbosch</option>
+                              <option value="12">University of the Western Cape</option>
+                              <option value="13">University of the Witwatersrand</option>
+                              <option value="14">University of Johannesburg</option>
+                              <option value="15">Nelson Mandela University</option>
+                              <option value="16">University of South Africa</option>
+                              <option value="17">University of Venda</option>
+                              <option value="18">Walter Sisulu University</option>
+                              <option value="19">University of Zululand</option>
+                              <option value="20">Cape Peninsula University of Technology</option>
+                              <option value="21">Central University of Technology</option>
+                              <option value="22">Durban University of Technology</option>
+                              <option value="23">Mangosuthu University of Technology</option>
+                              <option value="24">University of Mpumalanga</option>
+                              <option value="25">Sol Plaatje University</option>
+                              <option value="26">Tshwane University of Technology</option>
+                              <option value="27">Vaal University of Technology</option>
+                              <option value="28">Auckland Park Theological Seminary</option>
+                              <option value="29">Open Christian University</option>
+                              <option value="30">Baptist Theological College of Southern Africa</option>
+                              <option value="31">George Whitefield College</option>
+                              <option value="32">South African Theological Seminary</option>
+                              <option value="33">St Augustine College of South Africa</option>
+                              <option value="34">Two Oceans Graduate Institute</option>
+                              <option value="35">Cape Higher Education Consortium (CHEC)</option>
+                              <option value="36">Foundation of Tertiary Institutions of the Northern Metropolis (FOTIM)</option>
+                              <option value="37">Higher Education South Africa (HESA)</option>
+                              <option value="38">Southern Education and Research Alliance (SERA)</option>
+                              <option value="39">Bond South Africa</option>
+                              <option value="40">Border Technikon</option>
+                              <option value="41">University of Bophuthatswana</option>
+                              <option value="42">University of the Cape of Good Hope</option>
+                              <option value="43">Cape Technikon</option>
+                              <option value="44">University of Durban-Westville</option>
+                              <option value="45">Eastern Cape Technikon</option>
+                              <option value="46">Medical University of South Africa</option>
+                              <option value="47">Technikon Natal</option>
+                              <option value="48">University of the North</option>
+                              <option value="49">University of Natal</option>
+                              <option value="50">University of North-West, formerly the University of Bophuthatswana</option>
+                              <option value="51">Port Elizabeth Technikon.</option>
+                              <option value="52">University of Port Elizabeth</option>
+                              <option value="53">Potchefstroom University for Christian Higher Education</option>
+                              <option value="54">Rand Afrikaans University</option>
+                              <option value="55">Technikon SA</option>
+                              <option value="56">Transvaal University College</option>
+                              <option value="57">University of Transkei</option>
+                              <option value="58">University of Gazankulu</option>
+                              <option value="59">Vista University</option>
+                              <option value="60">Technikon Witwatersrand</option>
+                            </select>
+
+                            <label for="qual3status" class="form-label form-select-lg mb-3 text-right">Qualification Status</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="qual3status" id="qual3status">
+                              <option selected></option>
+                              <option value="1">Achieved</option>
+                              <option value="2">Enrolled</option>
+                              <option value="3">In Abeyance</option>
+                              <option value="4">Incomplete</option>
+                              <option value="5">Other</option>
+                            </select>
+                            
+                            <div>
+                              <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/qualifications'">&laquo; Prev</button>
+                              <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/funding'">Next &raquo;</button>
+                              
+                            </div>
+                            
+
+
+                          <!-- <form method="POST">
+                            
+                                                      
+                          <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label form-select-lg mb-3">Textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div>
+
+                            <h1 align="center">Job Summary</h1>
+                            <ul class="list-group list-group-flush" id="notes">
+                              {% for note in current_user.notes %}
+                                <li class="list-group-item">
+                                  {{ note.data }}
+                                  <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </li> 
+                              {% endfor %}
+                            </ul>
+                            <form method="POST">
+                              <textarea name="note" id="note" class="form-control"></textarea>
+                              <br />
+                              <div align="center">
+                                <button type="submit" class="btn btn-primary">Add Summary</button>
+                              </div>
+                            </form>  -->
+                            
+                    </div>
+          </form>
+      </div>
+  </div>
+</div>
+        
+<!-- 
+ <a href="{{url_for('auth.logout')}}">Logout</a>
+
+  {% else %}
+
+  <a href="{{url_for('auth.login')}}">Sign in/Sign Up</a> -->
+  
+{% endif %}
+<script>
+  $(document).ready(function() {
+      $("select.selectVal").change(function() {
+          let selectedItem = $(this).children("option:selected").val();
+          alert("You have selected the name - " + selectedItem);
+        });
+    });
+</script>
+<script>
+  function changeButtonName(btnId, btnValue) {
+      var btn = document.getElementById("i-greitis-dropdown");
+  }
+</script>
+{% endblock %}

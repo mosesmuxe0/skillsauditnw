@@ -1,0 +1,395 @@
+{% extends "base.html" %}
+{% block title %}Experience{% endblock %}
+
+<style>
+  a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+  }
+  
+  a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .previous {
+    background-color: #f1f1f1;
+    color: black;
+  }
+  
+  .next {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .round {
+    border-radius: 50%;
+  }
+  </style>
+
+{% block content %}
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-lg-5 col-md-6 m-auto card p-4">
+        <form action="{{ url_for('views.funding') }}" method="POST" class="card-body">
+          <form action="/action_page.php"></form>
+            <!-- <h4 align="right">Welcome {{ current_user.username }}</h4> -->
+            <div class="container py-4">
+                <h1 align="center">Previous Work Experience</h1>
+                  <br>
+                  <h6 align="center">This section requires you to provide the work experience that you have acquired prior to your current occupation. Note that information pertaining to each former employer should be provided in its own separate block. Where applicable, you may include your previous work experience derived from the current employer. In that regard, ensure that you do not duplicate information that you provided in the preceding sections. The questions are duplicated so as to leave room for individuals who have had several employers prior to the current employer</h6>
+                  <br>
+                    <div class="mb-3">
+                        <label for="occupation1" class="form-label form-select-lg mb-3 text-right"><b>Occupation / Position / Job Title</b></label>
+                        <input type="name" class="form-control form-select-lg mb-3" id="occupation1" name="occupation1" placeholder="" aria-label=".form-select-lg example">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="prevemployer1" class="form-label form-select-lg mb-3 text-right">Previous Employer</label>
+                        <input type="name" class="form-control form-select-lg mb-3" id="prevemployer1" name="prevemployer1" placeholder="" aria-label=".form-select-lg example">
+                    </div>
+
+                    <label for="sector1" class="form-label form-select-lg mb-3 text-right">Sector</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="sector1" id="sector1">
+                        <option selected></option>
+                        <option value="1">Municipality</option>
+                        <option value="2">Public Sector</option>
+                        <option value="3">Private Sector</option>
+                        <option value="4">Other</option>
+                    </select>
+
+                    <div class="mb-3">
+                        <label for="start1" class="form-label form-select-lg mb-3">Period Employed: Start</label>
+                        <input class="form-control form-select-lg mb-3" type="date" id="start1" name="start1">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="end1" class="form-label form-select-lg mb-3">Period Employed: End</label>
+                        <input class="form-control form-select-lg mb-3" type="date" id="end1" name="end1">
+                    </div>
+
+                    <label for="yrsinpos1" class="form-label form-select-lg mb-3 text-right">Years in Position</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="yrsinpos1" id="yrsinpos1">
+                        <option selected></option>
+                        <option value="1">Less than a year</option>
+                        <option value="2">1 year</option>
+                        <option value="3">2 years</option>
+                        <option value="4">3 years</option>
+                        <option value="5">4 years</option>
+                        <option value="6">5 years</option>
+                        <option value="7">6 years</option>
+                        <option value="8">7 years</option>
+                        <option value="9">8 years</option>
+                        <option value="10">9 years</option>
+                        <option value="11">10 years</option>
+                        <option value="12">11 years</option>
+                        <option value="13">12 years</option>
+                        <option value="14">13 years</option>
+                        <option value="15">14 years</option>
+                        <option value="16">15 years</option>
+                        <option value="17">16 years</option>
+                        <option value="18">17 years</option>
+                        <option value="19">18 years</option>
+                        <option value="20">19 years</option>
+                        <option value="21">20 years +</option>
+                    </select>
+                            
+
+                    <label for="municipaldivision1" class="form-label form-select-lg mb-3 text-right">Organisational Municipal Division</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="municipaldivision1" id="municipaldivision1">
+                        <option selected></option>
+                        <option value="1">Community services (social services; social and community services; social development)</option>
+                        <option value="2">Corporate Services (Human Resources & Administration Department)</option>
+                        <option value="3">Financial Services (Finance, Budget and Treasury)</option>
+                        <option value="4">Office of the Mayor</option>
+                        <option value="5">Office of the Municipal Manager</option>
+                        <option value="6">Planning and Development (Planning and Economic Development, Planning Research & Economic Development, Economic Development and Planning, Housing)</option>
+                        <option value="7">Technical services (Infrastructure Services, Infrastructure Development Services, Engineering Services)</option>
+                    </select>
+
+                    <form method="POST">
+                        <label align="center" for="kpas1" class="form-label form-select-lg mb-3">Key Performance Areas</label>
+                        <textarea name="kpas1" id="kpas1" class="form-control form-select-lg mb-3" rows="5" cols="10"></textarea>
+                    </form>
+
+                    <label for="explevel1" class="form-label form-select-lg mb-3 text-right">Level of Experience</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="explevel1" id="explevel1">
+                        <option selected></option>
+                        <option value="1">Semi-Skilled</option>
+                        <option value="2">Administrative / Clerical</option>
+                        <option value="3">Managerial / Supervisory</option>
+                        <option value="4">Strategic</option>
+                    </select>
+                    
+                    <label for="yrsofexp1" class="form-label form-select-lg mb-3 text-right">Years of Experience</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="yrsofexp1" id="yrsofexp1">
+                        <option selected></option>
+                        <option value="1">Less than a year</option>
+                        <option value="2">1 year</option>
+                        <option value="3">2 years</option>
+                        <option value="4">3 years</option>
+                        <option value="5">4 years</option>
+                        <option value="6">5 years</option>
+                        <option value="7">6 years</option>
+                        <option value="8">7 years</option>
+                        <option value="9">8 years</option>
+                        <option value="10">9 years</option>
+                        <option value="11">10 years</option>
+                        <option value="12">11 years</option>
+                        <option value="13">12 years</option>
+                        <option value="14">13 years</option>
+                        <option value="15">14 years</option>
+                        <option value="16">15 years</option>
+                        <option value="17">16 years</option>
+                        <option value="18">17 years</option>
+                        <option value="19">18 years</option>
+                        <option value="20">19 years</option>
+                        <option value="21">20 years +</option>
+                    </select>
+
+
+                    <div class="mb-3">
+                        <label for="occupation2" class="form-label form-select-lg mb-3 text-right"><b>Occupation / Position / Job Title</b></label>
+                        <input type="name" class="form-control form-select-lg mb-3" id="occupation2" name="occupation2" placeholder="" aria-label=".form-select-lg example">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="prevemployer2" class="form-label form-select-lg mb-3 text-right">Previous Employer</label>
+                        <input type="name" class="form-control form-select-lg mb-3" id="prevemployer2" name="prevemployer2" placeholder="" aria-label=".form-select-lg example">
+                    </div>
+
+                    <label for="sector2" class="form-label form-select-lg mb-3 text-right">Sector</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="sector2" id="sector2">
+                        <option selected></option>
+                        <option value="1">Municipality</option>
+                        <option value="2">Public Sector</option>
+                        <option value="3">Private Sector</option>
+                        <option value="4">Other</option>
+                    </select>
+
+                    <div class="mb-3">
+                        <label for="start2" class="form-label form-select-lg mb-3">Period Employed: Start</label>
+                        <input class="form-control form-select-lg mb-3" type="date" id="start2" name="start2">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="end2" class="form-label form-select-lg mb-3">Period Employed: End</label>
+                        <input class="form-control form-select-lg mb-3" type="date" id="end2" name="end2">
+                    </div>
+
+                    <label for="yrsinpos2" class="form-label form-select-lg mb-3 text-right">Years in Position</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="yrsinpos2" id="yrsinpos2">
+                        <option selected></option>
+                        <option value="1">Less than a year</option>
+                        <option value="2">1 year</option>
+                        <option value="3">2 years</option>
+                        <option value="4">3 years</option>
+                        <option value="5">4 years</option>
+                        <option value="6">5 years</option>
+                        <option value="7">6 years</option>
+                        <option value="8">7 years</option>
+                        <option value="9">8 years</option>
+                        <option value="10">9 years</option>
+                        <option value="11">10 years</option>
+                        <option value="12">11 years</option>
+                        <option value="13">12 years</option>
+                        <option value="14">13 years</option>
+                        <option value="15">14 years</option>
+                        <option value="16">15 years</option>
+                        <option value="17">16 years</option>
+                        <option value="18">17 years</option>
+                        <option value="19">18 years</option>
+                        <option value="20">19 years</option>
+                        <option value="21">20 years +</option>
+                    </select>
+                            
+
+                    <label for="municipaldivision2" class="form-label form-select-lg mb-3 text-right">Organisational Municipal Division</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="municipaldivision2" id="municipaldivision2">
+                        <option selected></option>
+                        <option value="1">Community services (social services; social and community services; social development)</option>
+                        <option value="2">Corporate Services (Human Resources & Administration Department)</option>
+                        <option value="3">Financial Services (Finance, Budget and Treasury)</option>
+                        <option value="4">Office of the Mayor</option>
+                        <option value="5">Office of the Municipal Manager</option>
+                        <option value="6">Planning and Development (Planning and Economic Development, Planning Research & Economic Development, Economic Development and Planning, Housing)</option>
+                        <option value="7">Technical services (Infrastructure Services, Infrastructure Development Services, Engineering Services)</option>
+                    </select>
+
+                    <form method="POST">
+                        <label align="center" for="kpas2" class="form-label form-select-lg mb-3">Key Performance Areas</label>
+                        <textarea name="kpas2" id="kpas2" class="form-control form-select-lg mb-3" rows="5" cols="10"></textarea>
+                    </form>
+
+                    <label for="explevel2" class="form-label form-select-lg mb-3 text-right">Level of Experience</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="explevel2" id="explevel2">
+                        <option selected></option>
+                        <option value="1">Semi-Skilled</option>
+                        <option value="2">Administrative / Clerical</option>
+                        <option value="3">Managerial / Supervisory</option>
+                        <option value="4">Strategic</option>
+                    </select>
+                    
+                    <label for="yrsofexp2" class="form-label form-select-lg mb-3 text-right">Years of Experience</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="yrsofexp2" id="yrsofexp2">
+                        <option selected></option>
+                        <option value="1">Less than a year</option>
+                        <option value="2">1 year</option>
+                        <option value="3">2 years</option>
+                        <option value="4">3 years</option>
+                        <option value="5">4 years</option>
+                        <option value="6">5 years</option>
+                        <option value="7">6 years</option>
+                        <option value="8">7 years</option>
+                        <option value="9">8 years</option>
+                        <option value="10">9 years</option>
+                        <option value="11">10 years</option>
+                        <option value="12">11 years</option>
+                        <option value="13">12 years</option>
+                        <option value="14">13 years</option>
+                        <option value="15">14 years</option>
+                        <option value="16">15 years</option>
+                        <option value="17">16 years</option>
+                        <option value="18">17 years</option>
+                        <option value="19">18 years</option>
+                        <option value="20">19 years</option>
+                        <option value="21">20 years +</option>
+                    </select>
+
+
+                    <div class="mb-3">
+                        <label for="occupation3" class="form-label form-select-lg mb-3 text-right"><b>Occupation / Position / Job Title</b></label>
+                        <input type="name" class="form-control form-select-lg mb-3" id="occupation3" name="occupation3" placeholder="" aria-label=".form-select-lg example">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="prevemployer3" class="form-label form-select-lg mb-3 text-right">Previous Employer</label>
+                        <input type="name" class="form-control form-select-lg mb-3" id="prevemployer3" name="prevemployer3" placeholder="" aria-label=".form-select-lg example">
+                    </div>
+
+                    <label for="sector3" class="form-label form-select-lg mb-3 text-right">Sector</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="sector3" id="sector3">
+                        <option selected></option>
+                        <option value="1">Municipality</option>
+                        <option value="2">Public Sector</option>
+                        <option value="3">Private Sector</option>
+                        <option value="4">Other</option>
+                    </select>
+
+                    <div class="mb-3">
+                        <label for="start3" class="form-label form-select-lg mb-3">Period Employed: Start</label>
+                        <input class="form-control form-select-lg mb-3" type="date" id="start3" name="start3">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="end3" class="form-label form-select-lg mb-3">Period Employed: End</label>
+                        <input class="form-control form-select-lg mb-3" type="date" id="end3" name="end3">
+                    </div>
+
+                    <label for="yrsinpos3" class="form-label form-select-lg mb-3 text-right">Years in Position</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="yrsinpos3" id="yrsinpos3">
+                        <option selected></option>
+                        <option value="1">Less than a year</option>
+                        <option value="2">1 year</option>
+                        <option value="3">2 years</option>
+                        <option value="4">3 years</option>
+                        <option value="5">4 years</option>
+                        <option value="6">5 years</option>
+                        <option value="7">6 years</option>
+                        <option value="8">7 years</option>
+                        <option value="9">8 years</option>
+                        <option value="10">9 years</option>
+                        <option value="11">10 years</option>
+                        <option value="12">11 years</option>
+                        <option value="13">12 years</option>
+                        <option value="14">13 years</option>
+                        <option value="15">14 years</option>
+                        <option value="16">15 years</option>
+                        <option value="17">16 years</option>
+                        <option value="18">17 years</option>
+                        <option value="19">18 years</option>
+                        <option value="20">19 years</option>
+                        <option value="21">20 years +</option>
+                    </select>
+                            
+
+                    <label for="municipaldivision3" class="form-label form-select-lg mb-3 text-right">Organisational Municipal Division</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="municipaldivision3" id="municipaldivision3">
+                        <option selected></option>
+                        <option value="1">Community services (social services; social and community services; social development)</option>
+                        <option value="2">Corporate Services (Human Resources & Administration Department)</option>
+                        <option value="3">Financial Services (Finance, Budget and Treasury)</option>
+                        <option value="4">Office of the Mayor</option>
+                        <option value="5">Office of the Municipal Manager</option>
+                        <option value="6">Planning and Development (Planning and Economic Development, Planning Research & Economic Development, Economic Development and Planning, Housing)</option>
+                        <option value="7">Technical services (Infrastructure Services, Infrastructure Development Services, Engineering Services)</option>
+                    </select>
+
+                    <form method="POST">
+                        <label align="center" for="kpas3" class="form-label form-select-lg mb-3">Key Performance Areas</label>
+                        <textarea name="kpas3" id="kpas3" class="form-control form-select-lg mb-3" rows="5" cols="10"></textarea>
+                    </form>
+
+                    <label for="explevel3" class="form-label form-select-lg mb-3 text-right">Level of Experience</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="explevel3" id="explevel3">
+                        <option selected></option>
+                        <option value="1">Semi-Skilled</option>
+                        <option value="2">Administrative / Clerical</option>
+                        <option value="3">Managerial / Supervisory</option>
+                        <option value="4">Strategic</option>
+                    </select>
+                    
+                    <label for="yrsofexp3" class="form-label form-select-lg mb-3 text-right">Years of Experience</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="yrsofexp3" id="yrsofexp3">
+                        <option selected></option>
+                        <option value="1">Less than a year</option>
+                        <option value="2">1 year</option>
+                        <option value="3">2 years</option>
+                        <option value="4">3 years</option>
+                        <option value="5">4 years</option>
+                        <option value="6">5 years</option>
+                        <option value="7">6 years</option>
+                        <option value="8">7 years</option>
+                        <option value="9">8 years</option>
+                        <option value="10">9 years</option>
+                        <option value="11">10 years</option>
+                        <option value="12">11 years</option>
+                        <option value="13">12 years</option>
+                        <option value="14">13 years</option>
+                        <option value="15">14 years</option>
+                        <option value="16">15 years</option>
+                        <option value="17">16 years</option>
+                        <option value="18">17 years</option>
+                        <option value="19">18 years</option>
+                        <option value="20">19 years</option>
+                        <option value="21">20 years +</option>
+                    </select>
+
+                            
+                    <div>
+                        <button type="submit" class="btn btn-primary" onclick="window.location.href = '/knowledge'">&laquo; Prev</button>
+                        <button type="submit" class="input btn btn-primary" onclick="window.location.href = '/'">Next &raquo;</button>
+                    </div>
+          </div>
+     
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+      $("select.selectVal").change(function() {
+          let selectedItem = $(this).children("option:selected").val();
+          alert("You have selected the name - " + selectedItem);
+        });
+    });
+</script>
+<script>
+  function changeButtonName(btnId, btnValue) {
+      var btn = document.getElementById("i-greitis-dropdown");
+  }
+</script>
+{% endblock %}

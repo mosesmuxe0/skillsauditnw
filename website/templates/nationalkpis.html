@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% block title %}National KPIs{% endblock %}
+    
+<style>
+    a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 16px;
+    }
+    
+    a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .previous {
+      background-color: #f1f1f1;
+      color: black;
+    }
+    
+    .next {
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+    .round {
+      border-radius: 50%;
+    }
+</style>
+{% block content %}
+    
+<div class="container">
+    <div class="row mt-4">
+     <div class="col-lg-5 col-md-6 m-auto card p-4">
+        <form action="{{ url_for('views.constraints') }}" method="POST" class="card-body">  
+            <form action="/action_page.php"></form>        
+                          <!-- <h4 align="right">Welcome {{ current_user.username }}</h4> -->
+            <div class="container py-4">
+                <h1 align="center">National KPIs</h1>
+                <br>
+                <!-- <h6 align="center">If applicable to your occupation, state the constraints that make your job difficult to do</h6> -->
+                <br>
+
+                <label for="member" class="form-label form-select-lg mb-3 text-right">How is the performance of the municipality in: <b>Municipal Transformation And Organisational Development?</b></label>
+                <select id="member" name="member" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected></option>
+                    <option value="1">5 - Outstanding</option>
+                    <option value="2">4 - Exceeds Expectations</option>
+                    <option value="3">3 - Meets Expectations</option>
+                    <option value="4">2 - Needs Improvement</option>
+                    <option value="5">1 - Unacceptable</option>
+                </select>
+
+                <form method="POST">
+                    <label align="center" for="kpi1" class="form-label form-select-lg mb-3 text-center">Please tell us why you gave the municipality the above rating: <b>Municipal Transformation And Organisational Development</b></label>
+                    <textarea name="kpi1" id="kpi1" class="form-control form-select-lg mb-3" rows="5" cols="10"></textarea>
+                    <!-- <br />
+                    <div align="center">
+                        <button type="submit" class="btn btn-primary">Add Note</button>
+                    </div> -->
+                </form>
+                <br>
+
+                <label for="member" class="form-label form-select-lg mb-3 text-right">How is the performance of the municipality in: <b>Municipal Transformation And Organisational Development?</b></label>
+                <select id="member" name="member" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected></option>
+                    <option value="1">5 - Outstanding</option>
+                    <option value="2">4 - Exceeds Expectations</option>
+                    <option value="3">3 - Meets Expectations</option>
+                    <option value="4">2 - Needs Improvement</option>
+                    <option value="5">1 - Unacceptable</option>
+                </select>
+
+                <form method="POST">
+                    <label align="center" for="kpi2" class="form-label form-select-lg mb-3">Please tell us why you gave the municipality the above rating: <b>Basic Service Delivery</b></label>
+                    <textarea name="kpi2" id="kpi2" class="form-control  form-select-lg mb-3" rows="5" cols="10"></textarea>
+                    <!-- <br />
+                    <div align="center">
+                        <button type="submit" class="btn btn-primary">Add Note</button>
+                    </div> -->
+                </form>
+                <br>
+
+                <label for="member" class="form-label form-select-lg mb-3 text-right">How is the performance of the municipality in: <b>Municipal Transformation And Organisational Development?</b></label>
+                <select id="member" name="member" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected></option>
+                    <option value="1">5 - Outstanding</option>
+                    <option value="2">4 - Exceeds Expectations</option>
+                    <option value="3">3 - Meets Expectations</option>
+                    <option value="4">2 - Needs Improvement</option>
+                    <option value="5">1 - Unacceptable</option>
+                </select>
+
+                <form method="POST">
+                    <label align="center" for="kpi3" class="form-label form-select-lg mb-3">Please tell us why you gave the municipality the above rating: <b>Local Economic Development</b></label>
+                    <textarea name="kpi3" id="kpi3" class="form-control form-select-lg mb-3" rows="5" cols="10"></textarea>
+                    <br />
+                    <!-- <div align="center">
+                        <button type="submit" class="btn btn-primary">Add Note</button>
+                    </div> -->
+                </form>
+                <br>
+
+                <label for="member" class="form-label form-select-lg mb-3 text-right">How is the performance of the municipality in: <b>Municipal Transformation And Organisational Development?</b></label>
+                <select id="member" name="member" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected></option>
+                    <option value="1">5 - Outstanding</option>
+                    <option value="2">4 - Exceeds Expectations</option>
+                    <option value="3">3 - Meets Expectations</option>
+                    <option value="4">2 - Needs Improvement</option>
+                    <option value="5">1 - Unacceptable</option>
+                </select>
+                      
+                <form method="POST">
+                    <label align="center" for="kpi4" class="form-label form-select-lg mb-3">Please tell us why you gave the municipality the above rating: <b>Municipal Financial Viability And Management</b></label>
+                    <textarea name="kpi4" id="kpi4" class="form-control form-select-lg mb-3" rows="5" cols="10"></textarea>
+                    <!-- <br />
+                    <div align="center">
+                        <button type="submit" class="btn btn-primary">Add Note</button>
+                    </div> -->
+                </form>
+                <br>
+
+                <label for="member" class="form-label form-select-lg mb-3 text-right">How is the performance of the municipality in: <b>Municipal Transformation And Organisational Development?</b></label>
+                <select id="member" name="member" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected></option>
+                    <option value="1">5 - Outstanding</option>
+                    <option value="2">4 - Exceeds Expectations</option>
+                    <option value="3">3 - Meets Expectations</option>
+                    <option value="4">2 - Needs Improvement</option>
+                    <option value="5">1 - Unacceptable</option>
+                </select>
+
+                <form method="POST">
+                    <label align="center" for="kpi5" class="form-label form-select-lg mb-3">Please tell us why you gave the municipality the above rating: <b>Good Governance And Public Participation</b></label>
+                    <textarea name="kpi5" id="kpi5" class="form-control form-select-lg mb-3" rows="5" cols="10"></textarea>
+                    <!-- <br />
+                    <div align="center">
+                        <button type="submit" class="btn btn-primary">Add Note</button>
+                    </div> -->
+                </form>
+                <br>
+                <div>
+                    <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/competencies'">&laquo; Prev</button>
+                    <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/rpl'">Next &raquo;</button> 
+                </div>
+              </div>        
+          </form>
+        </div>
+    </div>
+</div>
+    
+<script>
+    $(document).ready(function() {
+        $("select.selectVal").change(function() {
+            let selectedItem = $(this).children("option:selected").val();
+            alert("You have selected the name - " + selectedItem);
+          });
+      });
+</script>    
+<script>
+    function changeButtonName(btnId, btnValue) {
+        var btn = document.getElementById("i-greitis-dropdown");
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% block title %}Knowledge{% endblock %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+
+<div class="container">
+  <div class="row mt-4">
+      <div class="col-lg-5 col-md-6 m-auto card p-4">
+          <form action="{{ request.path }}" method="POST" class="card-body">
+                      <form action="/action_page.php"></form>
+                      
+                      <!-- <h4 align="right">Welcome {{ current_user.username }}</h4> -->
+                      <div class="container py-4">
+                        <h1 align="center">Skills and Knowledge</h1>
+                        <br>
+
+                        <label for="inlineRadio1" class="form-label form-select-lg mb-3">Do you have knowledge and skills of the following?</label><br><br>
+                              <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Time management</label><br>
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                              <label class="form-check-label" for="inlineRadio1">Novice</label>
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                              <label class="form-check-label" for="inlineRadio1">Intermediate</label>
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                              <label class="form-check-label" for="inlineRadio1">Advanced</label>
+                            <!-- </div> -->
+                            <br>
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Time management</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">People management</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Interpersonal and communication skills</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Proven planning and organizational skills</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Financial management and reconciliation skills</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Excellent communication (written and verbal)</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Report writing</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Project management</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Leadership training</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Diversity management</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Emotional intelligence</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Conflict resolution</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Computer literacy</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected></option>
+                              <option value="1">Novice</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                            </select>
+                            
+                            <!-- <a href="#" class="previous">&laquo; Previous</a>
+                            <a href="#" class="next">Next &raquo;</a> -->
+                            
+                            <div>
+                              <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/'">&laquo; Prev</button>
+                              <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = 'knowledge'">Next &raquo;</button>
+                              
+                            </div>
+                            
+
+
+                          <form method="POST">
+                            
+                                                      <!-- <br> -->
+                          <!-- <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label form-select-lg mb-3">Textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div> -->
+
+                            <h1 align="center">Job Summary</h1>
+                            <ul class="list-group list-group-flush" id="notes">
+                              {% for note in current_user.notes %}
+                                <li class="list-group-item">
+                                  {{ note.data }}
+                                  <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </li> 
+                              {% endfor %}
+                            </ul>
+                            <form method="POST">
+                              <textarea name="note" id="note" class="form-control"></textarea>
+                              <br />
+                              <div align="center">
+                                <button type="submit" class="btn btn-primary">Add Summary</button>
+                              </div>
+                            </form> 
+                    </div>
+          </form>
+      </div>
+  </div>
+</div>
+        
+<!-- 
+ <a href="{{url_for('auth.logout')}}">Logout</a>
+
+  {% else %}
+
+  <a href="{{url_for('auth.login')}}">Sign in/Sign Up</a> -->
+  
+{% endif %}
+<script>
+  $(document).ready(function() {
+      $("select.selectVal").change(function() {
+          let selectedItem = $(this).children("option:selected").val();
+          alert("You have selected the name - " + selectedItem);
+        });
+    });
+</script>
+<script>
+  function changeButtonName(btnId, btnValue) {
+      var btn = document.getElementById("i-greitis-dropdown");
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,292 @@
+{% extends "base.html" %}
+{% block title %}Knowledge{% endblock %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+
+<div class="container">
+  <div class="row mt-4">
+      <div class="col-lg-5 col-md-6 m-auto card p-4">
+          <form action="{{ request.path }}" method="POST" class="card-body">
+                      <form action="/action_page.php"></form>
+                      
+                      <!-- <h4 align="right">Welcome {{ current_user.username }}</h4> -->
+                      <div class="container py-4">
+                        <h1 align="center">LOCAL GOVERNMENT KNOWLEDGE AREAS </h1>
+                        <br>
+                        <h6 align="center">This section requires you to rate your knowledge or expertise on the following local government knowledge areas</h6>
+                        <br>
+
+                        <!-- <label for="inlineRadio1" class="form-label form-select-lg mb-3">Do you have knowledge and skills of the following?</label><br><br>
+                              <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Time management</label><br>
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                              <label class="form-check-label" for="inlineRadio1">Novice</label>
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                              <label class="form-check-label" for="inlineRadio1">Intermediate</label>
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                              <label class="form-check-label" for="inlineRadio1">Advanced</label>
+                           
+                            <br> -->
+                            <label for="area1" class="form-label form-select-lg mb-3 text-right">Goals and objectives of municipality</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area1" id="area1">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area2" class="form-label form-select-lg mb-3 text-right">Powers and functions of municipality</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area2" id="area2">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area3" class="form-label form-select-lg mb-3 text-right">Municipality structures and systems</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area3" id="area3">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area4" class="form-label form-select-lg mb-3 text-right">Integrated Environmental Planning</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area4" id="area4">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area5" class="form-label form-select-lg mb-3 text-right">Environmental Management</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area5" id="area5">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area6" class="form-label form-select-lg mb-3 text-right">The Performance Management System</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area6" id="area6">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area7" class="form-label form-select-lg mb-3 text-right">HR Management</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area7" id="area7">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area8" class="form-label form-select-lg mb-3 text-right">Water and Sanitation</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area8" id="area8">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area9" class="form-label form-select-lg mb-3 text-right">Roads and Storm Water</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area9" id="area9">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area10" class="form-label form-select-lg mb-3 text-right">Housing</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area10" id="area10">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area11" class="form-label form-select-lg mb-3 text-right">Planning (Town Planning, etc.)</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area11" id="area11">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area12" class="form-label form-select-lg mb-3 text-right">Emergency Services</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area12" id="area12">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+                            
+
+                            <label for="area13" class="form-label form-select-lg mb-3 text-right">Batho Pele Principles</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area13" id="area13">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area14" class="form-label form-select-lg mb-3 text-right">Municipal Finance Management</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area14" id="area14">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area15" class="form-label form-select-lg mb-3 text-right">Stakeholder Participation</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area15" id="area15">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area16" class="form-label form-select-lg mb-3 text-right">Legislation</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area16" id="area16">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area17" class="form-label form-select-lg mb-3 text-right">Municipal Transformation and Organisational Development</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area17" id="area17">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area18" class="form-label form-select-lg mb-3 text-right">Basic Service Delivery</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area18" id="area18">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area19" class="form-label form-select-lg mb-3 text-right">Local Economic Development</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area19" id="area19">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area20" class="form-label form-select-lg mb-3 text-right">Municipal Financial Viability and Management</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area20" id="area20">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area21" class="form-label form-select-lg mb-3 text-right">Good Governance and Public Participation</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area21" id="area21">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+
+                            <label for="area22" class="form-label form-select-lg mb-3 text-right">Monitoring and Evaluation</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area22" id="area22">
+                              <option selected></option>
+                              <option value="1">Basic</option>
+                              <option value="2">Intermediate</option>
+                              <option value="3">Advanced</option>
+                              <option value="4">Expert</option>
+                            </select>
+                            <!-- <a href="#" class="previous">&laquo; Previous</a>
+                            <a href="#" class="next">Next &raquo;</a> -->
+                            
+                            <div>
+                              <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/rpl'">&laquo; Prev</button>
+                              <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/experience'">Next &raquo;</button>
+                            </div>
+                            
+
+
+                          <!-- <form method="POST">
+                            
+                                                      
+                          <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label form-select-lg mb-3">Textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div>
+
+                            <h1 align="center">Job Summary</h1>
+                            <ul class="list-group list-group-flush" id="notes">
+                              {% for note in current_user.notes %}
+                                <li class="list-group-item">
+                                  {{ note.data }}
+                                  <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </li> 
+                              {% endfor %}
+                            </ul>
+                            <form method="POST">
+                              <textarea name="note" id="note" class="form-control"></textarea>
+                              <br />
+                              <div align="center">
+                                <button type="submit" class="btn btn-primary">Add Summary</button>
+                              </div>
+                            </form>  -->
+                            
+                    </div>
+          </form>
+      </div>
+  </div>
+</div>
+        
+<!-- 
+ <a href="{{url_for('auth.logout')}}">Logout</a>
+
+  {% else %}
+
+  <a href="{{url_for('auth.login')}}">Sign in/Sign Up</a> -->
+  
+{% endif %}
+<script>
+  $(document).ready(function() {
+      $("select.selectVal").change(function() {
+          let selectedItem = $(this).children("option:selected").val();
+          alert("You have selected the name - " + selectedItem);
+        });
+    });
+</script>
+<script>
+  function changeButtonName(btnId, btnValue) {
+      var btn = document.getElementById("i-greitis-dropdown");
+  }
+</script>
+{% endblock %}

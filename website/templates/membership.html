@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block title %}Membership{% endblock %}
+
+<style>
+  a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+  }
+  
+  a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .previous {
+    background-color: #f1f1f1;
+    color: black;
+  }
+  
+  .next {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .round {
+    border-radius: 50%;
+  }
+</style>
+
+{% block content %}
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-lg-5 col-md-6 m-auto card p-4">
+        <form action="{{ url_for('views.funding') }}" method="POST" class="card-body">  
+          <form action="/action_page.php"></form>        
+                      <!-- <h4 align="right">Welcome {{ current_user.username }}</h4> -->
+            <div class="container py-4">
+                <h1 align="center">Professional Membership</h1>
+                  <br>
+                  <!-- <h6 align="center">If you are currently undertaking tertiary studies that are funded by the municipality, please provide the following information</h6>
+                  <br> -->
+                    
+                    <label for="member" class="form-label form-select-lg mb-3 text-right">Are you currently a member of a Professional Body?</label>
+                    <select id="member" name="member" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected></option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                        <option value="3">N/A</option>
+                    </select>
+
+                    <label for="bodies" class="form-label form-select-lg mb-3 text-right">Name Of Professional Body</label>
+                    <select id="bodies" name="bodies" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected></option>
+                        <option value="1">N/A</option>
+                        <option value="2">Other</option>
+                        <option value="3">Actuarial Society of South Africa</option>
+                        <option value="4">Allied Health Professional Council of SA</option>
+                        <option value="5">Association of Skills Development Facilitation of SA</option>
+                        <option value="6">Association for Operations Management of Southern Africa - SAPICS</option>
+                        <option value="7">Association of Business Executives South Africa (ABESA)</option>
+                        <option value="8">Association of Certified Fraud Examiners</option>
+                        <option value="9">Association of Chartered Certified Accounts (ACCS)</option>
+                        <option value="10">Association of Corporate Treasurers of Southern Africa (ACTSA)</option>
+                        <option value="11">Biokinetic Association of SA</option>
+                        <option value="12">CFA South Africa</option>
+                        <option value="13">Chartered Institute of Management Accountants</option>
+                        <option value="14">Chartered Marketers(SA)</option>
+                        <option value="15">Chartered Secretaries Southern Africa</option>
+                        <option value="16">Close Protection Association of South Africa (CPASA)</option>
+                        <option value="17">Compliance Institute of South Africa</option>
+                        <option value="18">Computer Society of South Africa</option>
+                        <option value="19">Consulting Engineers South Africa (CESA)</option>
+                        <option value="20">Council for Professional and Technical Surveyors</option>
+                        <option value="21">Electrical Constractors' Association of South Africa</option>
+                        <option value="22">Engineering Council of South Africa</option>
+                        <option value="23">Federation of South Africa Tourist Guide Association</option>
+                        <option value="24">Field Guides Association of Southern Africa</option>
+                        <option value="25">Financial Planning Institute</option>
+                        <option value="26">Gauteng Society of Advocates</option>
+                        <option value="27">Health Professions Council of South Africa</option>
+                        <option value="28">Institute for Municipal Administration in Southern Africa</option>
+                        <option value="29">Institute for Public Finance Auditors</option>
+                        <option value="30">Institute for Timber Construction</option>
+                        <option value="31">Institute of Administration and Commerce</option>
+                        <option value="32">Institute of Bankers in South Africa</option>
+                        <option value="33">Institute of Certified Bookkeepers</option>
+                        <option value="34">Institute of Credit Management of SA</option>
+                        <option value="35">Institute of Financial Management</option>
+                        <option value="36">Institute of Internal Auditors</option>
+                        <option value="37">Institute of Loss Adjusters</option>
+                        <option value="38">Institute of Management Consultants of South Africa</option>
+                        <option value="39">Institute of Mine Surveyors of South Africa</option>
+                        <option value="40">Institute of Municipal Finance Officers (IMFO)</option>
+                        <option value="41">Insurance Institute of SA</option>
+                        <option value="42">Lifting Equipment Engineering Association of South Africa</option>
+                        <option value="43">National Professional Teachers Association of South Africa</option>
+                        <option value="44">Ocupational Therapy Association of SA</option>
+                        <option value="45">Pharmaceutical Society of South Africa</option>
+                        <option value="46">Professional Huntres Association of SA (PHASA)</option>
+                        <option value="47">Psychological Society of South Africa (PsySSA)</option>
+                        <option value="48">Public Relations Institute of Southern Africa (PRISA)</option>
+                        <option value="49">Dental Technology Association of South Africa (DENTASA)</option>
+                        <option value="50">SA Institute of Mangement</option>
+                        <option value="51">SA Institute of Security</option>
+                        <option value="52">Society of Medical Laboratory Technologists</option>
+                        <option value="53">South Africa Institute for Occupational Hygiene (SAIOH)</option>
+                        <option value="54">South Africa Institute of Architects</option>
+                        <option value="55">South African Institute of Electrical Engineers</option>
+                        <option value="56">South African Institute of Mechanical Engineering</option>
+                        <option value="57">South African Association of Health and Skincare Professionals</option>
+                        <option value="58">South African Board for People Practices (SABPP)</option>
+                        <option value="59">South African Council for Project and Construction Management Professions (SACPCMP)</option>
+                        <option value="60">South African Council for Social Service Profession (SACSSP)</option>
+                        <option value="61">South African Council for the Architectural Profession (SACAP)</option>
+                        <option value="62">South African Council for the Quantity Surveying Profession ( SACQSP)</option>
+                        <option value="63">South African Institute of Chartered Accountants (SAICA)</option>
+                        <option value="64">South African Institute of Financial Markets (SAIFM)</option>
+                        <option value="65">South African Institute of Interior Design Professions (IID)</option>
+                        <option value="66">South African Institute of Physics (SAIP)</option>
+                        <option value="67">South African Institute of Tax Practitioners</option>
+                        <option value="68">South African Institute on Draughting</option>
+                        <option value="69">South African Institute Stock Brokers (SAIS)</option>
+                        <option value="70">South African Institution of Civil Engineering(SAICE)</option>
+                        <option value="71">South African Nursing Council</option>
+                        <option value="72">South African Optometric Association (SAOA)</option>
+                        <option value="73">South African Veterinary Council</option>
+                        <option value="74">Southern African Institute for Business Accountants</option>
+                        <option value="75">South African Council for Educators</option>
+                    </select>
+
+                    <div class="mb-3">
+                        <label for="typeofmembership" class="form-label form-select-lg mb-3 text-right">Type of your Current Membership</label>
+                        <input type="name" class="form-control form-select-lg mb-3" id="typeofmembership" name="typeofmembership" placeholder="e.g. Associate Professional" aria-label=".form-select-lg example">
+                    </div>
+
+                    <label for="membershipcontract" class="form-label form-select-lg mb-3 text-right">Is your Membership Statutory Or Voluntary?</label>
+                    <select id="membershipcontract" name="membershipcontract" class="input form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected></option>
+                        <option value="1">Statutory</option>
+                        <option value="2">Voluntary</option>
+                    </select>
+
+                    <div class="mb-3">
+                        <label for="membershipno" class="form-label form-select-lg mb-3 text-right">Membership / Registration Number</label>
+                        <input type="name" class="form-control form-select-lg mb-3" id="membershipno" name="membershipno" placeholder="" aria-label=".form-select-lg example">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="registrationdate" class="form-label form-select-lg mb-3">When did you register with the Professional Body?</label>
+                        <!-- <label for="fundedto">From (date and time):</label> -->
+                        <input class="form-control form-select-lg mb-3" type="date" id="registrationdate" name="registrationdate">
+                    </div>
+                    <br>
+
+                    <div>
+                      <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/constraints'">&laquo; Prev</button>
+                      <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/development'">Next &raquo;</button> 
+                    </div>
+          </div>
+     
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+      $("select.selectVal").change(function() {
+          let selectedItem = $(this).children("option:selected").val();
+          alert("You have selected the name - " + selectedItem);
+        });
+    });
+</script>
+<script>
+  function changeButtonName(btnId, btnValue) {
+      var btn = document.getElementById("i-greitis-dropdown");
+  }
+</script>
+{% endblock %}

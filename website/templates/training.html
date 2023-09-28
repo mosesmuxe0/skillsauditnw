@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% block title %}Knowledge{% endblock %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+
+<div class="container">
+  <div class="row mt-4">
+      <div class="col-lg-5 col-md-6 m-auto card p-4">
+          <form action="{{ request.path }}" method="POST" class="card-body">
+                      <form action="/action_page.php"></form>
+                      
+                      <!-- <h4 align="right">Welcome {{ current_user.username }}</h4> -->
+                      <div class="container py-4">
+                        <h1 align="center">Type of Training</h1>
+                        <br>
+
+                        <!-- <label for="inlineRadio1" class="form-label form-select-lg mb-3">Do you have knowledge and skills of the following?</label><br><br>
+                              <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Time management</label><br>
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                              <label class="form-check-label" for="inlineRadio1">Novice</label>
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                              <label class="form-check-label" for="inlineRadio1">Intermediate</label>
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                              <label class="form-check-label" for="inlineRadio1">Advanced</label>
+                           
+                            <br> -->
+                            <label for="timemanagement" class="form-label form-select-lg mb-3 text-right">Time Management</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="timemanagement" id="timemanagement">
+                              <option selected></option>
+                              <option value="1">None</option>
+                              <option value="2">Experience</option>
+                              <option value="3">Workshop</option>
+                              <option value="4">On-The-Job Training</option>
+                              <option value="5">Short Course</option>
+                              <option value="6">Qualification</option>
+                            </select>
+
+                            <label for="peoplemanagement" class="form-label form-select-lg mb-3 text-right">People Management</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="peoplemanagement" id="peoplemanagement">
+                              <option selected></option>
+                              <option value="1">None</option>
+                              <option value="2">Experience</option>
+                              <option value="3">Workshop</option>
+                              <option value="4">On-The-Job Training</option>
+                              <option value="5">Short Course</option>
+                              <option value="6">Qualification</option>
+                            </select>
+
+                            <label for="interpersonal" class="form-label form-select-lg mb-3 text-right">Interpersonal and Communication Skills</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="interpersonal" id="interpersonal">
+                              <option selected></option>
+                              <option value="1">None</option>
+                              <option value="2">Experience</option>
+                              <option value="3">Workshop</option>
+                              <option value="4">On-The-Job Training</option>
+                              <option value="5">Short Course</option>
+                              <option value="6">Qualification</option>
+                            </select>
+
+                            <label for="planning" class="form-label form-select-lg mb-3 text-right">Proven Planning and Organizational Skills</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="planning" id="planning">
+                              <option selected></option>
+                              <option value="1">None</option>
+                              <option value="2">Experience</option>
+                              <option value="3">Workshop</option>
+                              <option value="4">On-The-Job Training</option>
+                              <option value="5">Short Course</option>
+                              <option value="6">Qualification</option>
+                            </select>
+
+                            <label for="financial" class="form-label form-select-lg mb-3 text-right">Financial Management and Reconciliation Skills</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="financial" id="financial">
+                              <option selected></option>
+                              <option value="1">None</option>
+                              <option value="2">Experience</option>
+                              <option value="3">Workshop</option>
+                              <option value="4">On-The-Job Training</option>
+                              <option value="5">Short Course</option>
+                              <option value="6">Qualification</option>
+                            </select>
+
+                            <label for="communication" class="form-label form-select-lg mb-3 text-right">Excellent Communication (written and verbal)</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="communication" id="communication">
+                              <option selected></option>
+                              <option value="1">None</option>
+                              <option value="2">Experience</option>
+                              <option value="3">Workshop</option>
+                              <option value="4">On-The-Job Training</option>
+                              <option value="5">Short Course</option>
+                              <option value="6">Qualification</option>
+                            </select>
+
+                            <label for="reportwriting" class="form-label form-select-lg mb-3 text-right">Report Writing</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="reportwriting" id="reportwriting">
+                              <option selected></option>
+                              <option value="1">None</option>
+                              <option value="2">Experience</option>
+                              <option value="3">Workshop</option>
+                              <option value="4">On-The-Job Training</option>
+                              <option value="5">Short Course</option>
+                              <option value="6">Qualification</option>
+                            </select>
+
+                            <label for="projmanagement" class="form-label form-select-lg mb-3 text-right">Project Management</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="projmanagement" id="projmanagement">
+                              <option selected></option>
+                              <option value="1">None</option>
+                              <option value="2">Experience</option>
+                              <option value="3">Workshop</option>
+                              <option value="4">On-The-Job Training</option>
+                              <option value="5">Short Course</option>
+                              <option value="6">Qualification</option>
+                            </select>
+
+                            <label for="leadership" class="form-label form-select-lg mb-3 text-right">Leadership Training</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="leadership" id="leadership">
+                              <option selected></option>
+                              <option value="1">None</option>
+                              <option value="2">Experience</option>
+                              <option value="3">Workshop</option>
+                              <option value="4">On-The-Job Training</option>
+                              <option value="5">Short Course</option>
+                              <option value="6">Qualification</option>
+                            </select>
+
+                            <label for="diversity" class="form-label form-select-lg mb-3 text-right">Diversity Management</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="diversity" id="diversity">
+                                <option selected></option>
+                                <option value="1">None</option>
+                                <option value="2">Experience</option>
+                                <option value="3">Workshop</option>
+                                <option value="4">On-The-Job Training</option>
+                                <option value="5">Short Course</option>
+                                <option value="6">Qualification</option>
+                            </select>
+
+                            <label for="eq" class="form-label form-select-lg mb-3 text-right">Emotional Intelligence</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="eq" id="eq">
+                              <option selected></option>
+                              <option value="1">None</option>
+                              <option value="2">Experience</option>
+                              <option value="3">Workshop</option>
+                              <option value="4">On-The-Job Training</option>
+                              <option value="5">Short Course</option>
+                              <option value="6">Qualification</option>
+                            </select>
+
+                            <label for="conflict" class="form-label form-select-lg mb-3 text-right">Conflict Resolution</label>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="conflict" id="conflict">
+                              <option selected></option>
+                              <option value="1">None</option>
+                              <option value="2">Experience</option>
+                              <option value="3">Workshop</option>
+                              <option value="4">On-The-Job Training</option>
+                              <option value="5">Short Course</option>
+                              <option value="6">Qualification</option>
+                            </select>
+                            
+                            <!-- <a href="#" class="previous">&laquo; Previous</a>
+                            <a href="#" class="next">Next &raquo;</a> -->
+                            
+                            <div>
+                              <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/knowledge'">&laquo; Prev</button>
+                              <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/knowledge'">Next &raquo;</button>
+                              
+                            </div>
+                            
+
+
+                          <!-- <form method="POST">
+                            
+                                                      
+                          <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label form-select-lg mb-3">Textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div>
+
+                            <h1 align="center">Job Summary</h1>
+                            <ul class="list-group list-group-flush" id="notes">
+                              {% for note in current_user.notes %}
+                                <li class="list-group-item">
+                                  {{ note.data }}
+                                  <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </li> 
+                              {% endfor %}
+                            </ul>
+                            <form method="POST">
+                              <textarea name="note" id="note" class="form-control"></textarea>
+                              <br />
+                              <div align="center">
+                                <button type="submit" class="btn btn-primary">Add Summary</button>
+                              </div>
+                            </form>  -->
+                            
+                    </div>
+          </form>
+      </div>
+  </div>
+</div>
+        
+<!-- 
+ <a href="{{url_for('auth.logout')}}">Logout</a>
+
+  {% else %}
+
+  <a href="{{url_for('auth.login')}}">Sign in/Sign Up</a> -->
+  
+{% endif %}
+<script>
+  $(document).ready(function() {
+      $("select.selectVal").change(function() {
+          let selectedItem = $(this).children("option:selected").val();
+          alert("You have selected the name - " + selectedItem);
+        });
+    });
+</script>
+<script>
+  function changeButtonName(btnId, btnValue) {
+      var btn = document.getElementById("i-greitis-dropdown");
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+<script>
+  $(document).bind('drop dragover', function (e) {
+    e.preventDefault();
+});
+
+Dropzone.autoDiscover = true;
+
+var myvue = new Vue({
+    el: 'body',
+
+    ready: function () {
+        var dropzone = new Dropzone(document.body, {
+            url: "/api/import",
+            previewsContainer: ".dropzone",
+            clickable: ".dropzone",
+            init: function () {
+                this.on("success", function (file, response) {
+                    console.log(file);
+                    console.log(response);
+                });
+            },
+            paramName: "file", // The name that will be used to transfer the file
+            maxFilesize: 10, // MB
+            acceptedFiles: ".doc, .docx, .txt, .pdf, .png, .jpg, .jpeg, .gif",
+            uploadMultiple: true,
+            maxFiles: 10,
+            headers: {
+                'X-CSRF-Token': $('meta[name="token"]').attr('content')
+            }
+        });
+    }
+});
+</script>
+<style>
+  .dropzone {
+    border: none !important;
+    border-radius: 5px;
+    padding: 0 !important;
+    background: white !important;
+    min-height: 200px !important;
+    width: 100%;
+    margin-bottom: 20px;
+    line-height: 200px;
+    vertical-align: middle;
+    color: #263238;
+    text-align: center !important;
+}
+</style>
+<style>
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  </style>
+<style>
+  a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+  }
+  
+  a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .previous {
+    background-color: #f1f1f1;
+    color: black;
+  }
+  
+  .next {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .round {
+    border-radius: 50%;
+  }
+  </style>
+
+{% block content %}
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-lg col-md-6 m-auto card p-4">
+        <form action="{{ url_for('views.qualifications') }}" method="POST" enctype="multipart/form-data" class="card-body dropzone">
+         
+         
+                      
+                      <!-- <h4 align="right">Welcome {{ current_user.username }}</h4> -->
+            <div class="container py-4">
+                <h1 align="center">Upload Qualifications & Certificates</h1>
+                  <br>
+                  <!-- <h6 align="center">Click below to upload</h6> -->
+                  <div class="dz-message" data-dz-message><span >Click here to upload files</span></div>
+                    
+                            <!-- <div class="tooltip">Click to upload
+                              <span class="tooltiptext">Click the empty space below the submit button to upload as many certificate as you</span>
+                            </div> -->
+                            
+                            
+                  
+                    
+          </div>
+     
+      </form>
+      <br>
+      <div>
+        <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/'">&laquo; Prev</button>
+        <button type="submit" class="btn btn-primary text-align-left" onclick="window.location.href = '/qualdetails'">Next &raquo;</button>
+      </div>
+    </div>
+  </div>
+</div>
+                
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.js"></script>
+<script>
+  Dropzone.options.myDropzone = {
+    addRemoveLinks: true,
+init: function() {
+thisDropzone = this;
+ $.get('photo-add.php', function(data) {
+ $.each(data, function(key,value){
+var mockFile = { name: value.name, size: value.size };
+  thisDropzone.options.addedfile.call(thisDropzone, mockFile);
+ thisDropzone.options.thumbnail.call(thisDropzone, mockFile,      "upload/"+value.name);
+
+});
+ });
+
+ this.on("removedfile", function(file) {
+alert(file.name);
+console.log(file);
+     // Create the remove button
+  var removeButton = Dropzone.createElement("<button>Remove file</button>");
+
+ // Capture the Dropzone instance as closure.
+  var _this = this;
+
+ // Listen to the click event
+ removeButton.addEventListener();
+
+   // Add the button to the file preview element.
+  file.previewElement.appendChild(removeButton);
+    });
+  }
+  };
+     </script>
+<script>
+  $(document).ready(function() {
+      $("select.selectVal").change(function() {
+          let selectedItem = $(this).children("option:selected").val();
+          alert("You have selected the name - " + selectedItem);
+        });
+    });
+</script>
+<script>
+  function changeButtonName(btnId, btnValue) {
+      var btn = document.getElementById("i-greitis-dropdown");
+  }
+</script>
+{% endblock %}
