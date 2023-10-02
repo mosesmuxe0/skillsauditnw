@@ -1,3 +1,4 @@
 .vscode
 website/__pycache__
+website/DB_NAME
 venv
